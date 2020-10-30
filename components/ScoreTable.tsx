@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export const ScoreTable = function () {
-  const deepCopy = (obj) => JSON.parse(JSON.stringify(obj))
-  const [rounds, setRounds] = useState([[0, 0]])
-  const users = ['小島', '林']
+type Props = {
+  players: string[]
+  rounds: number[][]
+  onChange: (score: number, roundIndex: number, index: number) => void
+}
+
+export const ScoreTable = (props: Props): JSX.Element => {
+  const players = props.players
+  const rounds = props.rounds
 
   const roundsDom = rounds.map((round, roundIndex) => {
     const tdDoms = round.map((score, index) => (
@@ -12,28 +17,32 @@ export const ScoreTable = function () {
           type="number"
           value={score}
           onChange={(event) => {
-            const newRounds = deepCopy(rounds)
-            newRounds[roundIndex][index] = event.target.value
-            setRounds(newRounds)
+            const inputScore: number = parseInt(event.target.value, 10)
+            if (Number.isNaN(inputScore)) {
+              props.onChange(0, roundIndex, index)
+            } else {
+              props.onChange(inputScore, roundIndex, index)
+            }
           }}
         />
       </td>
     ))
     return (
       <tr key={`round-${roundIndex}`}>
-        <td>Round-1</td>
+        <td>{roundIndex + 1}</td>
         {tdDoms}
       </tr>
     )
   })
+
+  const playersDom = players.map((name) => <td key={name}>{name}</td>)
 
   return (
     <table>
       <thead>
         <tr>
           <td>Round</td>
-          <td>{users[0]}</td>
-          <td>{users[1]}</td>
+          {playersDom}
         </tr>
       </thead>
       <tbody>{roundsDom}</tbody>
