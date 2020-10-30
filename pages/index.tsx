@@ -14,10 +14,7 @@ export type Options = {
 export const Home = (): JSX.Element => {
   const [rounds, setRounds] = useState([])
   const [players, setPlayers] = useState([])
-  const [options, setOptions]: [
-    Options,
-    (newOptions: Options) => void
-  ] = useState({
+  const [options, setOptions] = useState({
     rescueSecond: true,
     rescueThird: false,
   })
