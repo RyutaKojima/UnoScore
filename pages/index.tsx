@@ -1,6 +1,6 @@
+import React, { useState } from 'react'
 import Head from 'next/head'
 import { ScoreTable } from '../components/ScoreTable'
-import { useState } from 'react'
 import { deepCopy, filledArray } from '../utils/utils'
 import { UserAppendForm } from '../components/UserAppendForm'
 import { ResultTable } from '../components/ResultTable'
@@ -9,14 +9,16 @@ import { OptionForm } from '../components/OptionForm'
 export type Options = {
   rescueSecond: boolean
   rescueThird: boolean
+  magnification: number
 }
 
 export const Home = (): JSX.Element => {
   const [rounds, setRounds] = useState([])
   const [players, setPlayers] = useState([])
-  const [options, setOptions] = useState({
+  const [options, setOptions]: [Options, any] = useState({
     rescueSecond: true,
     rescueThird: false,
+    magnification: 1,
   })
 
   return (
@@ -35,6 +37,19 @@ export const Home = (): JSX.Element => {
             options={options}
             onChange={(newOptions: Options) => setOptions(newOptions)}
           />
+          倍率：
+          <select
+            value={options.magnification}
+            onChange={(event) => {
+              setOptions({ ...options, magnification: event.target.value })
+            }}
+          >
+            <option value="1">x1</option>
+            <option value="2">x2</option>
+            <option value="3">x3</option>
+            <option value="4">x4</option>
+            <option value="5">x5</option>
+          </select>
           <UserAppendForm
             onAppended={(name) => {
               if (!name) {

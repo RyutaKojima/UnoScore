@@ -41,7 +41,7 @@ export const ResultTable = (props: Props): JSX.Element => {
     })
   })
 
-  const finalScores: number[] = results.reduce(
+  const totalScore: number[] = results.reduce(
     (prev: number[], result): number[] => {
       const scores: number[] = result.map((r) => r.score)
       if (prev.length === 0) {
@@ -52,6 +52,10 @@ export const ResultTable = (props: Props): JSX.Element => {
     },
     []
   )
+  const finalScores: number[] = totalScore.map(
+    (score) => score * props.options.magnification
+  )
+
   const finalTds = finalScores.map((score, index) => (
     <td key={`final-${index}`}>{score}</td>
   ))
@@ -87,7 +91,7 @@ export const ResultTable = (props: Props): JSX.Element => {
       <tbody>{body}</tbody>
       <tfoot>
         <tr>
-          <th>合計</th>
+          <th>合計(x{props.options.magnification})</th>
           {finalTds}
         </tr>
       </tfoot>
