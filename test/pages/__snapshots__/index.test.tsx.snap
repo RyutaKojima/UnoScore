@@ -3,118 +3,149 @@
 exports[`Home page matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="jsx-2250570153 container"
+    class="jsx-3235090753 container"
   >
     <main
-      class="jsx-2250570153"
+      class="jsx-3235090753"
     >
       <h1
-        class="jsx-2250570153 title"
+        class="jsx-3235090753 title"
       >
-        Welcome to 
-        <a
-          class="jsx-2250570153"
-          href="https://nextjs.org"
-        >
-          Next.js!
-        </a>
+        Uno score
       </h1>
-      <p
-        class="jsx-2250570153 description"
+      <h2
+        class="jsx-3235090753"
       >
-        Get started by editing 
-        <code
-          class="jsx-2250570153"
-        >
-          pages/index.tsx
-        </code>
-      </p>
-      <button
-        class="jsx-2250570153"
+        Step.1 Initial settings
+      </h2>
+      <section
+        class="jsx-3235090753"
       >
-        Test Button
-      </button>
-      <div
-        class="jsx-2250570153 grid"
+        <div>
+          <label>
+            ２位免除
+            <input
+              checked=""
+              type="checkbox"
+            />
+          </label>
+          <label>
+            ３位免除
+            <input
+              type="checkbox"
+            />
+          </label>
+        </div>
+        倍率：
+        <select
+          class="jsx-3235090753"
+        >
+          <option
+            class="jsx-3235090753"
+            value="1"
+          >
+            x1
+          </option>
+          <option
+            class="jsx-3235090753"
+            value="2"
+          >
+            x2
+          </option>
+          <option
+            class="jsx-3235090753"
+            value="3"
+          >
+            x3
+          </option>
+          <option
+            class="jsx-3235090753"
+            value="4"
+          >
+            x4
+          </option>
+          <option
+            class="jsx-3235090753"
+            value="5"
+          >
+            x5
+          </option>
+        </select>
+        <form>
+          <label>
+            ユーザー追加
+          </label>
+          <input
+            type="text"
+            value=""
+          />
+          <button
+            type="submit"
+          >
+            add
+          </button>
+        </form>
+      </section>
+      <h2
+        class="jsx-3235090753"
       >
-        <a
-          class="jsx-2250570153 card"
-          href="https://nextjs.org/docs"
+        Step.2 Input scores
+      </h2>
+      <section
+        class="jsx-3235090753"
+      >
+        <table>
+          <thead>
+            <tr>
+              <td>
+                Round
+              </td>
+            </tr>
+          </thead>
+          <tbody />
+        </table>
+        <button
+          class="jsx-3235090753"
         >
-          <h3
-            class="jsx-2250570153"
-          >
-            Documentation →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://nextjs.org/learn"
+          add Round
+        </button>
+      </section>
+      <h2
+        class="jsx-3235090753"
+      >
+        Step.3 Results
+      </h2>
+      <section
+        class="jsx-3235090753"
+      >
+        <h1
+          class="jsx-3235090753"
         >
-          <h3
-            class="jsx-2250570153"
-          >
-            Learn →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Learn about Next.js in an interactive course with quizzes!
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://github.com/vercel/next.js/tree/master/examples"
-        >
-          <h3
-            class="jsx-2250570153"
-          >
-            Examples →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Discover and deploy boilerplate example Next.js projects.
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        >
-          <h3
-            class="jsx-2250570153"
-          >
-            Deploy →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
-        </a>
-      </div>
+          結果
+        </h1>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Round
+              </th>
+            </tr>
+          </thead>
+          <tbody />
+          <tfoot>
+            <tr>
+              <th>
+                合計(x1)
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
     </main>
     <footer
-      class="jsx-2250570153"
+      class="jsx-3235090753"
     >
-      <a
-        class="jsx-2250570153"
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Powered by 
-        <img
-          alt="Vercel Logo"
-          class="jsx-2250570153 logo"
-          src="/vercel.svg"
-        />
-      </a>
+      Powered by Ryuta Kojima
     </footer>
   </div>
 </DocumentFragment>
