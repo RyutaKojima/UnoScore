@@ -1,4 +1,6 @@
 import React from 'react'
+import clsx from 'clsx'
+import { Label } from './Label'
 
 type Props = {
   players: string[]
@@ -12,7 +14,7 @@ export const ScoreTable = (props: Props): JSX.Element => {
 
   const roundsDom = rounds.map((round, roundIndex) => {
     const tdDoms = round.map((score, index) => (
-      <td key={`column-${roundIndex}-${index}`}>
+      <TableCell key={`column-${roundIndex}-${index}`} className="px-2 py-1">
         <input
           type="number"
           value={score}
@@ -24,28 +26,46 @@ export const ScoreTable = (props: Props): JSX.Element => {
               props.onChange(inputScore, roundIndex, index)
             }
           }}
+          className="form-input w-full"
         />
-      </td>
+      </TableCell>
     ))
     return (
       <tr key={`round-${roundIndex}`}>
-        <td>{roundIndex + 1}</td>
+        <TableCell className="text-center">
+          <span className="text-xs font-bold text-gray-600">
+            {roundIndex + 1}
+          </span>
+        </TableCell>
         {tdDoms}
       </tr>
     )
   })
 
-  const playersDom = players.map((name) => <td key={name}>{name}</td>)
+  const playersDom = players.map((name) => (
+    <TableCell key={name} className="text-center">
+      <Label>{name}</Label>
+    </TableCell>
+  ))
 
   return (
-    <table>
+    <table className="table-auto w-full">
       <thead>
         <tr>
-          <td>Round</td>
+          <TableCell>
+            <span className="text-xs font-bold text-gray-600">Round</span>
+          </TableCell>
           {playersDom}
         </tr>
       </thead>
       <tbody>{roundsDom}</tbody>
     </table>
   )
+}
+
+const TableCell: React.FC<{ className?: string }> = ({
+  className,
+  children,
+}) => {
+  return <td className={clsx('px-2 py-1', className)}>{children}</td>
 }

@@ -87,12 +87,14 @@ export const Home = (): JSX.Element => {
           rounds={rounds}
           onChange={handleOnChangeScore}
         />
-        <button
-          onClick={handleAddRound}
-          className="btn bg-gradient-to-r from-teal-400 to-blue-500 text-white mt-2"
-        >
-          add Round
-        </button>
+        <div className="text-center mt-4">
+          <button
+            onClick={handleAddRound}
+            className="btn bg-gradient-to-r from-teal-400 to-blue-500 text-white"
+          >
+            add Round
+          </button>
+        </div>
       </Section>
 
       <Section title="Step.3 Results">
