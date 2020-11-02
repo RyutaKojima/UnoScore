@@ -55,7 +55,7 @@ export const Home = (): JSX.Element => {
   return (
     <BaseLayout
       containerClass="bg-gray-200"
-      className="w-full max-w-xl mx-auto flex flex-col space-y-10 py-10"
+      className="w-full max-w-xl mx-auto flex flex-col space-y-10 py-10 px-3"
     >
       <Section title="Step.1 Initial settings" className="space-y-4">
         <OptionForm
