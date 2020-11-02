@@ -1,6 +1,6 @@
 import React from 'react'
-import clsx from 'clsx'
 import { Label } from './Label'
+import { TableCell } from './TableCell'
 
 type Props = {
   players: string[]
@@ -61,11 +61,4 @@ export const ScoreTable = (props: Props): JSX.Element => {
       <tbody>{roundsDom}</tbody>
     </table>
   )
-}
-
-const TableCell: React.FC<{ className?: string }> = ({
-  className,
-  children,
-}) => {
-  return <td className={clsx('px-2 py-1', className)}>{children}</td>
 }
