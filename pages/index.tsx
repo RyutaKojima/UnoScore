@@ -98,7 +98,15 @@ export const Home = (): JSX.Element => {
         </section>
       </main>
 
-      <footer>Powered by Ryuta Kojima</footer>
+      <footer>
+        <div>Powered by Ryuta Kojima</div>
+        <a
+          href={'https://github.com/RyutaKojima/UnoScore'}
+          className="github-link"
+        >
+          GitHub
+        </a>
+      </footer>
 
       <style jsx>{`
         .container {
@@ -165,6 +173,10 @@ export const Home = (): JSX.Element => {
             width: 100%;
             flex-direction: column;
           }
+        }
+
+        .github-link {
+          margin-left: 1rem;
         }
       `}</style>
 
