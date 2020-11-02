@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="min-h-screen flex flex-col bg-gray-200"
+  >
+    <header
+      class="p-4"
+    >
+      <div
+        class="flex justify-center items-center space-x-4"
+      >
+        <div
+          style="max-width: 100%; width: 25px;"
+        >
+          <div
+            style="position: relative; padding-bottom: 160%;"
+          >
+            <img
+              class="shadow __lazy"
+              data-src="/_next/image?url=%2Fimg%2Fdraw4.png&w=320&q=75"
+              data-srcset="/_next/image?url=%2Fimg%2Fdraw4.png&w=320&q=75 320w"
+              style="visibility: hidden; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
+            />
+          </div>
+        </div>
+        <h1
+          class="text-2xl font-bold italic text-gray-800"
+        >
+          UNO Score
+        </h1>
+      </div>
+    </header>
+    <main
+      class="flex-1 w-full max-w-xl mx-auto flex flex-col space-y-10 py-10 px-3"
+    >
+      <section
+        class="bg-white p-4 rounded-lg shadow-xl space-y-4"
+      >
+        <h2
+          class="text-2xl font-bold text-gray-800 mb-4"
+        >
+          Step.1 Initial settings
+        </h2>
+        <div
+          class="space-x-3"
+        >
+          <label
+            class="inline-flex items-center"
+          >
+            <span
+              class="text-gray-700 text-sm font-semibold mr-2"
+            >
+              ２位免除
+            </span>
+            <input
+              checked=""
+              class="form-checkbox"
+              type="checkbox"
+            />
+          </label>
+          <label
+            class="inline-flex items-center"
+          >
+            <span
+              class="text-gray-700 text-sm font-semibold mr-2"
+            >
+              ３位免除
+            </span>
+            <input
+              class="form-checkbox"
+              type="checkbox"
+            />
+          </label>
+        </div>
+        <label
+          class="block mt-4"
+        >
+          <span
+            class="text-gray-700 text-sm font-semibold"
+          >
+            倍率：
+          </span>
+          <select
+            class="form-select mt-1 block w-full"
+          >
+            <option
+              value="1"
+            >
+              x1
+            </option>
+            <option
+              value="2"
+            >
+              x2
+            </option>
+            <option
+              value="3"
+            >
+              x3
+            </option>
+            <option
+              value="4"
+            >
+              x4
+            </option>
+            <option
+              value="5"
+            >
+              x5
+            </option>
+          </select>
+        </label>
+        <form>
+          <label
+            class="block"
+          >
+            <span
+              class="text-gray-700 text-sm font-semibold"
+            >
+              ユーザー追加
+            </span>
+            <div
+              class="flex mt-1"
+            >
+              <input
+                class="form-input block w-full"
+                type="text"
+                value=""
+              />
+              <button
+                class="btn bg-gradient-to-r from-teal-400 to-blue-500 text-white ml-4"
+                type="submit"
+              >
+                add
+              </button>
+            </div>
+          </label>
+        </form>
+      </section>
+      <section
+        class="bg-white p-4 rounded-lg shadow-xl"
+      >
+        <h2
+          class="text-2xl font-bold text-gray-800 mb-4"
+        >
+          Step.2 Input scores
+        </h2>
+        <table
+          class="table-auto w-full"
+        >
+          <thead>
+            <tr>
+              <td
+                class="px-2 py-1"
+              >
+                <span
+                  class="text-xs font-bold text-gray-600"
+                >
+                  Round
+                </span>
+              </td>
+            </tr>
+          </thead>
+          <tbody />
+        </table>
+        <div
+          class="text-center mt-4"
+        >
+          <button
+            class="btn bg-gradient-to-r from-teal-400 to-blue-500 text-white"
+          >
+            add Round
+          </button>
+        </div>
+      </section>
+      <section
+        class="bg-white p-4 rounded-lg shadow-xl"
+      >
+        <h2
+          class="text-2xl font-bold text-gray-800 mb-4"
+        >
+          Step.3 Results
+        </h2>
+        <table
+          class="table-fixed w-full"
+        >
+          <thead>
+            <tr>
+              <th
+                class="border"
+              >
+                <span
+                  class="text-xs font-bold text-gray-500"
+                >
+                  Round
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody />
+          <tfoot>
+            <tr>
+              <th
+                class="border"
+              >
+                <span
+                  class="text-xs font-bold text-gray-700"
+                >
+                  合計(x1)
+                </span>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+    <footer
+      class="p-4 border-t flex justify-center items-center space-x-4"
+    >
+      <p
+        class="text-center"
+      >
+        Powered by Ryuta Kojima
+      </p>
+      <a
+        class="bg-black text-white text-sm font-semibold py-1 px-4 rounded-full"
+        href="https://github.com/RyutaKojima/UnoScore"
+      >
+        GitHub
+      </a>
+    </footer>
+  </div>
+</DocumentFragment>
+`;

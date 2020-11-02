@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 import { Options } from '../pages'
 import { sumArray } from '../utils/utils'
+import { TableCell } from './TableCell'
+import { Label } from './Label'
 
 type Props = {
   players: string[]
@@ -61,41 +63,59 @@ export const ResultTable = (props: Props): JSX.Element => {
   )
 
   const finalTds = finalScores.map((score, index) => (
-    <td key={`final-${index}`}>{score}</td>
+    <TableCell key={`final-${index}`} className="text-center border">
+      <span className="font-bold text-gray-800">{score}</span>
+    </TableCell>
   ))
 
   const nameHeader = props.players.map((name) => (
-    <th key={`result-head-${name}`}>{name}</th>
+    <th key={`result-head-${name}`} className="border">
+      <Label>{name}</Label>
+    </th>
   ))
 
   const body = results.map((row, line) => {
     const tds = row.map((column, index) => (
-      <td key={`col-${line}-${index}`}>
-        <div>{column.rank}</div>
-        <div>{column.score}</div>
-      </td>
+      <TableCell key={`col-${line}-${index}`} className="text-center border">
+        <div>
+          <span className="text-xxs font-bold text-gray-600">
+            {column.rank}位
+          </span>
+        </div>
+        <div>
+          <span className="font-bold text-gray-800">{column.score}</span>
+        </div>
+      </TableCell>
     ))
 
     return (
       <tr key={`line-${line}`}>
-        <td>{line + 1}</td>
+        <TableCell className="text-center border">
+          <span className="text-xs font-bold text-gray-500">{line + 1}</span>
+        </TableCell>
         {tds}
       </tr>
     )
   })
 
   return (
-    <table>
+    <table className="table-fixed w-full">
       <thead>
         <tr>
-          <th>Round</th>
+          <th className="border">
+            <span className="text-xs font-bold text-gray-500">Round</span>
+          </th>
           {nameHeader}
         </tr>
       </thead>
       <tbody>{body}</tbody>
       <tfoot>
         <tr>
-          <th>合計(x{props.options.magnification})</th>
+          <th className="border">
+            <span className="text-xs font-bold text-gray-700">
+              合計(x{props.options.magnification})
+            </span>
+          </th>
           {finalTds}
         </tr>
       </tfoot>

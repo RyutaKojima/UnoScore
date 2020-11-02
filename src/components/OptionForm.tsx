@@ -1,5 +1,6 @@
 import React from 'react'
 import { Options } from '../pages'
+import { Label } from './Label'
 
 type Props = {
   options: Options
@@ -7,9 +8,9 @@ type Props = {
 }
 
 export const OptionForm = (props: Props): JSX.Element => (
-  <div>
-    <label>
-      ２位免除
+  <div className="space-x-3">
+    <label className="inline-flex items-center">
+      <Label className="mr-2">２位免除</Label>
       <input
         type="checkbox"
         checked={props.options.rescueSecond}
@@ -19,11 +20,12 @@ export const OptionForm = (props: Props): JSX.Element => (
             rescueSecond: !props.options.rescueSecond,
           })
         }}
+        className="form-checkbox"
       />
     </label>
 
-    <label>
-      ３位免除
+    <label className="inline-flex items-center">
+      <Label className="mr-2">３位免除</Label>
       <input
         type="checkbox"
         checked={props.options.rescueThird}
@@ -33,6 +35,7 @@ export const OptionForm = (props: Props): JSX.Element => (
             rescueThird: !props.options.rescueThird,
           })
         }}
+        className="form-checkbox"
       />
     </label>
   </div>
