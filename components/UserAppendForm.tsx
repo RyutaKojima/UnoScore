@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const UserAppendForm = (props: Props): JSX.Element => {
-  const [name, setName]: [string, (name: string) => void] = useState('')
+  const [name, setName] = useState('')
 
   const clearName = (): void => {
     setName('')

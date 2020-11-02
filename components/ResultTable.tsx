@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Options } from '../pages'
 import { sumArray } from '../utils/utils'
 
@@ -12,34 +12,38 @@ type ResultValue = { rank: number; score: number }
 type ResultRow = ResultValue[]
 
 export const ResultTable = (props: Props): JSX.Element => {
-  const results = props.rounds.map((round) => {
-    const ranking: ResultRow = round.map((v) => ({
-      rank: round.filter((target) => v > target).length + 1,
-      score: v,
-    }))
+  const results = useMemo(
+    () =>
+      props.rounds.map((round) => {
+        const ranking: ResultRow = round.map((v) => ({
+          rank: round.filter((target) => v > target).length + 1,
+          score: v,
+        }))
 
-    const rescued: ResultRow = ranking.map((v) => {
-      if (v.rank === 2 && props.options.rescueSecond) {
-        return { ...v, score: 0 }
-      }
-      if (v.rank === 3 && props.options.rescueThird) {
-        return { ...v, score: 0 }
-      }
-      return { ...v, score: v.score }
-    })
+        const rescued: ResultRow = ranking.map((v) => {
+          if (v.rank === 2 && props.options.rescueSecond) {
+            return { ...v, score: 0 }
+          }
+          if (v.rank === 3 && props.options.rescueThird) {
+            return { ...v, score: 0 }
+          }
+          return { ...v, score: v.score }
+        })
 
-    const sumScore: number = rescued.reduce(
-      (prev, current) => prev + current.score,
-      0
-    )
+        const sumScore: number = rescued.reduce(
+          (prev, current) => prev + current.score,
+          0
+        )
 
-    return rescued.map((v) => {
-      return {
-        ...v,
-        score: v.rank === 1 ? sumScore : v.score * -1,
-      }
-    })
-  })
+        return rescued.map((v) => {
+          return {
+            ...v,
+            score: v.rank === 1 ? sumScore : v.score * -1,
+          }
+        })
+      }),
+    [props.rounds, props.options]
+  )
 
   const totalScore: number[] = results.reduce(
     (prev: number[], result): number[] => {
