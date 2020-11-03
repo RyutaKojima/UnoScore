@@ -23,9 +23,14 @@ export const ScoreTable = (props: Props): JSX.Element => {
   ) => {
     if (Number.isNaN(inputScore)) {
       props.onChange(0, roundIndex, scoreIndex)
-    } else {
-      props.onChange(inputScore, roundIndex, scoreIndex)
+      return
     }
+    if (inputScore < 0) {
+      props.onChange(0, roundIndex, scoreIndex)
+      return
+    }
+
+    props.onChange(inputScore, roundIndex, scoreIndex)
   }
 
   const roundsDom = rounds.map((round, roundIndex) => {
