@@ -32,7 +32,7 @@ export const SelectCardModal: React.FC<Props> = ({
   const handleOnDone = () => {
     const score = selectedCards
       .map((card) => card.score)
-      .reduce((previousValue, currentValue) => previousValue + currentValue)
+      .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
 
     onDone(score)
   }
