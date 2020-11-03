@@ -1,6 +1,6 @@
 import React, { ChangeEvent, ComponentProps, useState } from 'react'
 import { ScoreTable } from '../components/ScoreTable'
-import { deepCopy, filledArray } from '../utils/utils'
+import { deepCopy, filledArray, lastOfArray } from '../utils/utils'
 import { UserAppendForm } from '../components/UserAppendForm'
 import { ResultTable } from '../components/ResultTable'
 import { OptionForm } from '../components/OptionForm'
@@ -15,6 +15,7 @@ export type Options = {
 }
 
 export const Home = (): JSX.Element => {
+  const [errors, setErrors] = useState<string[]>([])
   const [rounds, setRounds] = useState<number[][]>([])
   const [players, setPlayers] = useState<string[]>([])
   const [options, setOptions] = useState<Options>({
@@ -22,6 +23,15 @@ export const Home = (): JSX.Element => {
     rescueThird: false,
     magnification: 1,
   })
+
+  const isInputScoreValid = (): boolean => {
+    const currentRound: number[] = lastOfArray<number[]>(rounds)
+    if (currentRound === null) {
+      return true
+    }
+
+    return currentRound.filter((score) => score === 0).length === 1
+  }
 
   const handleOnChangeMagnification = (
     e: ChangeEvent<HTMLSelectElement>
@@ -47,6 +57,14 @@ export const Home = (): JSX.Element => {
   }
 
   const handleAddRound = (): void => {
+    if (players.length <= 1) {
+      setErrors(['プレイヤーを登録してください'])
+      return
+    }
+    if (!isInputScoreValid()) {
+      setErrors(['スコアが未入力のプレイヤーがいます'])
+      return
+    }
     const newRounds = deepCopy(rounds)
     newRounds.push(filledArray<number>(players.length, 0))
     setRounds(newRounds)
@@ -87,6 +105,7 @@ export const Home = (): JSX.Element => {
           rounds={rounds}
           onChange={handleOnChangeScore}
         />
+        <p className="text-red-400">{errors}</p>
         <div className="text-center mt-4">
           <button
             onClick={handleAddRound}
