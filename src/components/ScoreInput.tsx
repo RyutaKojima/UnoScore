@@ -17,19 +17,19 @@ export const ScoreInput: React.FC<Props> = ({
   onChange,
   className,
 }) => {
-  const [displayScoreModal, setDisplayScoreModal] = useState(false)
+  const [displayModal, setDisplayModal] = useState(false)
 
-  const openDisplayScoreModal = () => {
-    setDisplayScoreModal(true)
+  const openScoreModal = () => {
+    setDisplayModal(true)
   }
 
-  const closeDisplayScoreModal = () => {
-    setDisplayScoreModal(false)
+  const closeScoreModal = () => {
+    setDisplayModal(false)
   }
 
   const handleOnFocus = () => {
     if (isSelectCardMode) {
-      openDisplayScoreModal()
+      openScoreModal()
     }
   }
 
@@ -40,7 +40,7 @@ export const ScoreInput: React.FC<Props> = ({
 
   const handleOnDone = (score: number) => {
     onChange(score)
-    closeDisplayScoreModal()
+    closeScoreModal()
   }
 
   return (
@@ -55,9 +55,9 @@ export const ScoreInput: React.FC<Props> = ({
       />
       <SelectCardModal
         id={id}
-        isShow={displayScoreModal}
+        isShow={displayModal}
         onDone={handleOnDone}
-        onClose={closeDisplayScoreModal}
+        onClose={closeScoreModal}
       />
     </>
   )
