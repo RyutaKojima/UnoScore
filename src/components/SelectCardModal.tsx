@@ -25,7 +25,6 @@ export const SelectCardModal: React.FC<Props> = ({
   }
 
   const handleClose = () => {
-    setSelectedCards([])
     onClose()
   }
 
