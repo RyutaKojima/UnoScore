@@ -1,5 +1,23 @@
 export const deepCopy = (obj) => JSON.parse(JSON.stringify(obj))
 
+export const firstOfArray: <T>(targetArray: Array<T>) => T | null = (
+  targetArray
+) => {
+  if (targetArray.length === 0) {
+    return null
+  }
+  return deepCopy(targetArray[0])
+}
+
+export const lastOfArray: <T>(targetArray: Array<T>) => T | null = (
+  targetArray
+) => {
+  if (targetArray.length === 0) {
+    return null
+  }
+  return deepCopy(targetArray[targetArray.length - 1])
+}
+
 export const filledArray: <T>(length: number, value: T) => T[] = (
   length,
   value

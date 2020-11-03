@@ -189,6 +189,9 @@ exports[`Home page matches snapshot 1`] = `
           </thead>
           <tbody />
         </table>
+        <p
+          class="text-red-400"
+        />
         <div
           class="text-center mt-4"
         >
