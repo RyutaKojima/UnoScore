@@ -48,7 +48,7 @@ export const ScoreInput: React.FC<Props> = ({
       <input
         id={id}
         type="number"
-        value={value}
+        value={value || ''}
         onFocus={handleOnFocus}
         onChange={handleOnChange}
         className={clsx(className)}

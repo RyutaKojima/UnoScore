@@ -39,7 +39,7 @@ export const ScoreTable = (props: Props): JSX.Element => {
         <ScoreInput
           id={`${roundIndex}-${index}`}
           isSelectCardMode={isSelectCardMode}
-          value={score || ''}
+          value={score}
           onChange={(score) => handleOnChangeScore(score, roundIndex, index)}
           className="form-input w-full"
         />
