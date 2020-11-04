@@ -17,6 +17,7 @@ export const ScoreInput: React.FC<Props> = ({
   onChange,
   className,
 }) => {
+  const [isFocus, setIsFocus] = useState(false)
   const [displayModal, setDisplayModal] = useState(false)
 
   const openScoreModal = () => {
@@ -28,9 +29,14 @@ export const ScoreInput: React.FC<Props> = ({
   }
 
   const handleOnFocus = () => {
+    setIsFocus(true)
     if (isSelectCardMode) {
       openScoreModal()
     }
+  }
+
+  const handleOnBlur = () => {
+    setIsFocus(false)
   }
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -48,8 +54,9 @@ export const ScoreInput: React.FC<Props> = ({
       <input
         id={id}
         type="number"
-        value={value || ''}
+        value={isFocus && !value ? '' : value}
         onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
         onChange={handleOnChange}
         className={clsx(className)}
       />

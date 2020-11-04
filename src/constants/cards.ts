@@ -42,12 +42,16 @@ export const CARDS: ICard[] = [
     imgSrc: '/img/9.png',
   },
   {
-    score: 20,
-    imgSrc: '/img/draw2.png',
+    score: 50,
+    imgSrc: '/img/wild.png',
   },
   {
     score: 50,
     imgSrc: '/img/draw4.png',
+  },
+  {
+    score: 20,
+    imgSrc: '/img/draw2.png',
   },
   {
     score: 20,
@@ -56,9 +60,5 @@ export const CARDS: ICard[] = [
   {
     score: 20,
     imgSrc: '/img/skip.png',
-  },
-  {
-    score: 50,
-    imgSrc: '/img/wild.png',
   },
 ]

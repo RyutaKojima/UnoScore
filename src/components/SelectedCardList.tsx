@@ -26,8 +26,9 @@ export const SelectedCardList: React.FC<Props> = ({
     setSelectedCards(filteredCards)
   }
 
-  const handleReset = () => {
-    setSelectedCards([])
+  const handleUndo = () => {
+    const slicedCards = selectedCards.slice(0, selectedCards.length - 1)
+    setSelectedCards(slicedCards)
   }
 
   return (
@@ -53,10 +54,10 @@ export const SelectedCardList: React.FC<Props> = ({
             確定
           </button>
           <button
-            onClick={handleReset}
+            onClick={handleUndo}
             className="py-1 text-xs rounded font-bold w-full bg-gray-600 text-white"
           >
-            リセット
+            戻す
           </button>
         </div>
       </div>
