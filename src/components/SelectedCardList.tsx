@@ -27,10 +27,8 @@ export const SelectedCardList: React.FC<Props> = ({
   }
 
   const handleUndo = () => {
-    const filteredCards = selectedCards.filter(
-      (_, index) => index !== selectedCards.length - 1
-    )
-    setSelectedCards(filteredCards)
+    const slicedCards = selectedCards.slice(0, selectedCards.length - 1)
+    setSelectedCards(slicedCards)
   }
 
   return (
