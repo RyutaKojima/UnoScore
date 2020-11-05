@@ -21,7 +21,7 @@ export const SelectCardModal: React.FC<Props> = ({
   const [selectedCards, setSelectedCards] = useState<ICard[]>([])
 
   const handleOnClickCard = (selectedCard: ICard) => {
-    setSelectedCards([...selectedCards, selectedCard])
+    setSelectedCards([selectedCard, ...selectedCards])
   }
 
   const handleClose = () => {
