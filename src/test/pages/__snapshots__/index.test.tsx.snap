@@ -228,6 +228,19 @@ exports[`Home page matches snapshot 1`] = `
           </thead>
           <tbody />
           <tfoot>
+            <tr
+              class="bg-gray-100"
+            >
+              <th
+                class="border"
+              >
+                <span
+                  class="text-xs font-bold text-gray-700"
+                >
+                  合計
+                </span>
+              </th>
+            </tr>
             <tr>
               <th
                 class="border"
