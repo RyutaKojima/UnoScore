@@ -4,5 +4,5 @@ import { IRound } from './round'
 export type IGame = {
   players: string[]
   rounds: IRound[]
-  options: IOption
+  option: IOption
 }
