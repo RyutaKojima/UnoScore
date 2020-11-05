@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { SelectCardModal } from './SelectCardModal'
 
@@ -20,6 +20,8 @@ export const ScoreInput: React.FC<Props> = ({
   const [isFocus, setIsFocus] = useState(false)
   const [displayModal, setDisplayModal] = useState(false)
 
+  const inputRef = useRef<HTMLInputElement>(null)
+
   const openScoreModal = () => {
     setDisplayModal(true)
   }
@@ -31,6 +33,7 @@ export const ScoreInput: React.FC<Props> = ({
   const handleOnFocus = () => {
     setIsFocus(true)
     if (isSelectCardMode) {
+      inputRef.current.blur()
       openScoreModal()
     }
   }
@@ -47,6 +50,7 @@ export const ScoreInput: React.FC<Props> = ({
   return (
     <>
       <input
+        ref={inputRef}
         id={id}
         type="number"
         value={isFocus && !value ? '' : value}
