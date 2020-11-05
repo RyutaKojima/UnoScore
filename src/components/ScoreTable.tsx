@@ -41,7 +41,8 @@ export const ScoreTable = (props: Props): JSX.Element => {
           isSelectCardMode={isSelectCardMode}
           value={score}
           onChange={(score) => handleOnChangeScore(score, roundIndex, index)}
-          className="form-input w-full"
+          disabled={roundIndex !== rounds.length - 1}
+          className="form-input w-full disabled:bg-gray-300"
         />
       </TableCell>
     ))
