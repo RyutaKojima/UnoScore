@@ -7,6 +7,7 @@ import { OptionForm } from '../components/OptionForm'
 import { BaseLayout } from '../layouts/BaseLayout'
 import { Section } from '../components/Section'
 import { Label } from '../components/Label'
+import { useRounds } from '../hooks/use-rounds'
 
 export type Options = {
   rescueSecond: boolean
@@ -16,7 +17,7 @@ export type Options = {
 
 export const Home = (): JSX.Element => {
   const [errors, setErrors] = useState<string[]>([])
-  const [rounds, setRounds] = useState<number[][]>([])
+  const [rounds, setRounds] = useRounds()
   const [players, setPlayers] = useState<string[]>([])
   const [options, setOptions] = useState<Options>({
     rescueSecond: true,
