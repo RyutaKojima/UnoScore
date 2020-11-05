@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CARDS } from '../constants/cards'
 import Image from 'next/image'
 import { ICard } from '../interfaces/card'
@@ -8,17 +8,25 @@ import { SelectedCardList } from './SelectedCardList'
 type Props = {
   id: string
   isShow?: boolean
-  onDone: (score: number) => void
+  onChange: (score: number) => void
   onClose: () => void
 }
 
 export const SelectCardModal: React.FC<Props> = ({
   id,
   isShow,
-  onDone,
+  onChange,
   onClose,
 }) => {
   const [selectedCards, setSelectedCards] = useState<ICard[]>([])
+
+  useEffect(() => {
+    const score = selectedCards
+      .map((card) => card.score)
+      .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+
+    onChange(score)
+  }, [selectedCards])
 
   const handleOnClickCard = (selectedCard: ICard) => {
     setSelectedCards([selectedCard, ...selectedCards])
@@ -26,14 +34,6 @@ export const SelectCardModal: React.FC<Props> = ({
 
   const handleClose = () => {
     onClose()
-  }
-
-  const handleOnDone = () => {
-    const score = selectedCards
-      .map((card) => card.score)
-      .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
-
-    onDone(score)
   }
 
   return isShow ? (
@@ -49,7 +49,6 @@ export const SelectCardModal: React.FC<Props> = ({
           id={id}
           selectedCards={selectedCards}
           setSelectedCards={setSelectedCards}
-          onDone={handleOnDone}
           className="p-2 border-b"
         />
 

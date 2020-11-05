@@ -3,12 +3,12 @@ import { Label } from './Label'
 import Image from 'next/image'
 import { ICard } from '../interfaces/card'
 import clsx from 'clsx'
+import { UndoIcon } from './icons/UndoIcon'
 
 type Props = {
   id: string
   selectedCards: ICard[]
   setSelectedCards: (cards: ICard[]) => void
-  onDone: () => void
   className?: string
 }
 
@@ -16,7 +16,6 @@ export const SelectedCardList: React.FC<Props> = ({
   id,
   selectedCards,
   setSelectedCards,
-  onDone,
   className,
 }) => {
   const handleRemoveCard = (targetIndex) => {
@@ -35,7 +34,7 @@ export const SelectedCardList: React.FC<Props> = ({
     <div className={clsx(className)}>
       <Label>選択済みのカード</Label>
       <div className="flex items-center mt-1">
-        <div className="flex-1 flex items-center overflow-x-scroll space-x-2">
+        <div className="flex-1 flex items-center overflow-x-scroll space-x-2 h-20">
           {selectedCards.map((card, index) => (
             <div
               key={`selected-card-${card.imgSrc}-${index}-${id}`}
@@ -46,20 +45,16 @@ export const SelectedCardList: React.FC<Props> = ({
             </div>
           ))}
         </div>
-        <div className="space-y-2 ml-2">
-          <button
-            onClick={onDone}
-            className="py-1 text-xs rounded font-bold w-full bg-gradient-to-r from-teal-400 to-blue-500 text-white"
-          >
-            確定
-          </button>
-          <button
-            onClick={handleUndo}
-            className="py-1 text-xs rounded font-bold w-full bg-gray-600 text-white"
-          >
-            戻す
-          </button>
-        </div>
+        {!!selectedCards.length && (
+          <div className="ml-3">
+            <button
+              onClick={handleUndo}
+              className="p-2 rounded-full bg-gray-300 fill-current text-gray-600 focus:outline-none"
+            >
+              <UndoIcon className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )
