@@ -9,6 +9,7 @@ import { Section } from '../components/Section'
 import { Label } from '../components/Label'
 import { useRounds } from '../hooks/use-rounds'
 import { usePlayers } from '../hooks/use-players'
+import { useOption } from '../hooks/use-option'
 
 export type Options = {
   rescueSecond: boolean
@@ -20,11 +21,7 @@ export const Home = (): JSX.Element => {
   const [errors, setErrors] = useState<string[]>([])
   const [rounds, setRounds] = useRounds()
   const [players, setPlayers] = usePlayers()
-  const [options, setOptions] = useState<Options>({
-    rescueSecond: true,
-    rescueThird: false,
-    magnification: 1,
-  })
+  const [option, setOption] = useOption()
 
   const isInputScoreValid = (): boolean => {
     const currentRound: number[] = lastOfArray<number[]>(rounds)
@@ -38,7 +35,7 @@ export const Home = (): JSX.Element => {
   const handleOnChangeMagnification = (
     e: ChangeEvent<HTMLSelectElement>
   ): void => {
-    setOptions({ ...options, magnification: Number(e.target.value) })
+    setOption({ ...option, magnification: Number(e.target.value) })
   }
 
   const handleAppendUser = (name: string): void => {
@@ -79,14 +76,14 @@ export const Home = (): JSX.Element => {
     >
       <Section title="Step.1 Initial settings" className="space-y-4">
         <OptionForm
-          options={options}
-          onChange={(newOptions: Options) => setOptions(newOptions)}
+          options={option}
+          onChange={(newOptions: Options) => setOption(newOptions)}
         />
 
         <label className="block mt-4">
           <Label>倍率：</Label>
           <select
-            value={options.magnification}
+            value={option.magnification}
             className="form-select mt-1 block w-full"
             onChange={handleOnChangeMagnification}
           >
@@ -119,7 +116,7 @@ export const Home = (): JSX.Element => {
       </Section>
 
       <Section title="Step.3 Results">
-        <ResultTable players={players} rounds={rounds} options={options} />
+        <ResultTable players={players} rounds={rounds} options={option} />
       </Section>
     </BaseLayout>
   )
