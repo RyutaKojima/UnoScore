@@ -8,6 +8,7 @@ import { BaseLayout } from '../layouts/BaseLayout'
 import { Section } from '../components/Section'
 import { Label } from '../components/Label'
 import { useRounds } from '../hooks/use-rounds'
+import { usePlayers } from '../hooks/use-players'
 
 export type Options = {
   rescueSecond: boolean
@@ -18,7 +19,7 @@ export type Options = {
 export const Home = (): JSX.Element => {
   const [errors, setErrors] = useState<string[]>([])
   const [rounds, setRounds] = useRounds()
-  const [players, setPlayers] = useState<string[]>([])
+  const [players, setPlayers] = usePlayers()
   const [options, setOptions] = useState<Options>({
     rescueSecond: true,
     rescueThird: false,
