@@ -7,6 +7,7 @@ type Props = {
   isSelectCardMode: boolean
   value: number
   onChange: (score: number) => void
+  disabled?: boolean
   className?: string
 }
 
@@ -15,6 +16,7 @@ export const ScoreInput: React.FC<Props> = ({
   isSelectCardMode,
   value,
   onChange,
+  disabled,
   className,
 }) => {
   const [isFocus, setIsFocus] = useState(false)
@@ -53,6 +55,7 @@ export const ScoreInput: React.FC<Props> = ({
         ref={inputRef}
         id={id}
         type="number"
+        disabled={disabled}
         value={isFocus && !value ? '' : value}
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
