@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react'
 import { Options } from '../pages'
-import { sumArray } from '../utils/utils'
 import { TableCell } from './TableCell'
 import { Label } from './Label'
+import { IResult } from '../interfaces/result'
+import { ResultTableFooter } from './ResultTableFooter'
 
 type Props = {
   players: string[]
@@ -10,8 +11,7 @@ type Props = {
   options: Options
 }
 
-type ResultValue = { rank: number; score: number }
-type ResultRow = ResultValue[]
+type ResultRow = IResult[]
 
 export const ResultTable = (props: Props): JSX.Element => {
   const results = useMemo(
@@ -46,27 +46,6 @@ export const ResultTable = (props: Props): JSX.Element => {
       }),
     [props.rounds, props.options]
   )
-
-  const totalScore: number[] = results.reduce(
-    (prev: number[], result): number[] => {
-      const scores: number[] = result.map((r) => r.score)
-      if (prev.length === 0) {
-        return scores
-      }
-
-      return sumArray(prev, scores)
-    },
-    []
-  )
-  const finalScores: number[] = totalScore.map(
-    (score) => score * props.options.magnification
-  )
-
-  const finalTds = finalScores.map((score, index) => (
-    <TableCell key={`final-${index}`} className="text-center border">
-      <span className="font-bold text-gray-800">{score}</span>
-    </TableCell>
-  ))
 
   const nameHeader = props.players.map((name) => (
     <th key={`result-head-${name}`} className="border">
@@ -109,16 +88,10 @@ export const ResultTable = (props: Props): JSX.Element => {
         </tr>
       </thead>
       <tbody>{body}</tbody>
-      <tfoot>
-        <tr>
-          <th className="border">
-            <span className="text-xs font-bold text-gray-700">
-              合計(x{props.options.magnification})
-            </span>
-          </th>
-          {finalTds}
-        </tr>
-      </tfoot>
+      <ResultTableFooter
+        results={results}
+        magnification={props.options.magnification}
+      />
     </table>
   )
 }
