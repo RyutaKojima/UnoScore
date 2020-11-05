@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { Label } from './Label'
 
 type Props = {
@@ -8,25 +8,33 @@ type Props = {
 export const UserAppendForm = (props: Props): JSX.Element => {
   const [name, setName] = useState('')
 
+  const textInputRef = React.createRef<HTMLInputElement>()
+
+  const focusText = (): void => {
+    textInputRef.current.focus()
+  }
+
   const clearName = (): void => {
     setName('')
   }
 
-  return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault()
+  const handleOnSubmit: (event: FormEvent) => void = (event): void => {
+    event.preventDefault()
 
-        props.onAppended(name)
-        clearName()
-      }}
-    >
+    props.onAppended(name)
+    clearName()
+    focusText()
+  }
+
+  return (
+    <form onSubmit={handleOnSubmit}>
       <label className="block">
         <Label>ユーザー追加</Label>
         <div className="flex mt-1">
           <input
             type="text"
             value={name}
+            ref={textInputRef}
             className="form-input block w-full"
             onChange={(event) => {
               setName(event.target.value)
