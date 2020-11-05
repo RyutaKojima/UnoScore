@@ -12,17 +12,14 @@ export const ResultTableFooter: React.FC<Props> = ({
   results,
   magnification,
 }) => {
-  const totalScores: number[] = results.reduce(
-    (prev: number[], result): number[] => {
-      const scores: number[] = result.map((r) => r.score)
-      if (prev.length === 0) {
-        return scores
-      }
+  const totalScores: number[] = results.reduce<number[]>((prev, result) => {
+    const scores = result.map((r) => r.score)
+    if (prev.length === 0) {
+      return scores
+    }
 
-      return sumArray(prev, scores)
-    },
-    []
-  )
+    return sumArray(prev, scores)
+  }, [])
 
   const finalScores: number[] = totalScores.map(
     (score) => score * magnification
