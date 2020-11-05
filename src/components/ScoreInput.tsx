@@ -44,11 +44,6 @@ export const ScoreInput: React.FC<Props> = ({
     onChange(inputScore)
   }
 
-  const handleOnDone = (score: number) => {
-    onChange(score)
-    closeScoreModal()
-  }
-
   return (
     <>
       <input
@@ -63,7 +58,7 @@ export const ScoreInput: React.FC<Props> = ({
       <SelectCardModal
         id={id}
         isShow={displayModal}
-        onDone={handleOnDone}
+        onChange={onChange}
         onClose={closeScoreModal}
       />
     </>
