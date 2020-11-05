@@ -3,6 +3,7 @@ import { Label } from './Label'
 import Image from 'next/image'
 import { ICard } from '../interfaces/card'
 import clsx from 'clsx'
+import { UndoIcon } from './icons/UndoIcon'
 
 type Props = {
   id: string
@@ -55,9 +56,9 @@ export const SelectedCardList: React.FC<Props> = ({
           </button>
           <button
             onClick={handleUndo}
-            className="py-1 text-xs rounded font-bold w-full bg-gray-600 text-white"
+            className="p-2 rounded-full bg-gray-300 fill-current text-gray-600 focus:outline-none"
           >
-            戻す
+            <UndoIcon className="w-4 h-4" />
           </button>
         </div>
       </div>
