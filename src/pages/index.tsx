@@ -10,6 +10,7 @@ import { Label } from '../components/Label'
 import { useRounds } from '../hooks/use-rounds'
 import { usePlayers } from '../hooks/use-players'
 import { useOption } from '../hooks/use-option'
+import { ResetGameButton } from '../components/RestGameButton'
 
 export type Options = {
   rescueSecond: boolean
@@ -117,6 +118,9 @@ export const Home = (): JSX.Element => {
 
       <Section title="Step.3 Results">
         <ResultTable players={players} rounds={rounds} options={option} />
+        <div className="text-center mt-4">
+          <ResetGameButton />
+        </div>
       </Section>
     </BaseLayout>
   )

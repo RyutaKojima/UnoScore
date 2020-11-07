@@ -27,5 +27,8 @@ export const gameSlice = createSlice({
     setOption: (state, action: PayloadAction<IGame['option']>) => {
       return { ...state, option: action.payload }
     },
+    initialize: () => {
+      return { ...initialState }
+    },
   },
 })
