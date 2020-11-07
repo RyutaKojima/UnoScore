@@ -15,6 +15,9 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
+    setGame: (state, action: PayloadAction<Partial<IGame>>) => {
+      return { ...state, ...action.payload }
+    },
     setRounds: (state, action: PayloadAction<IGame['rounds']>) => {
       return { ...state, rounds: action.payload }
     },
