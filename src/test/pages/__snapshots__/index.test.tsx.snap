@@ -254,6 +254,15 @@ exports[`Home page matches snapshot 1`] = `
             </tr>
           </tfoot>
         </table>
+        <div
+          class="text-center mt-4"
+        >
+          <button
+            class="btn bg-gray-800 text-white"
+          >
+            リセット
+          </button>
+        </div>
       </section>
     </main>
     <footer
