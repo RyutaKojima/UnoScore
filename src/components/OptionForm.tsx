@@ -1,10 +1,10 @@
 import React from 'react'
-import { Options } from '../pages'
 import { Label } from './Label'
+import { IOption } from '../interfaces/option'
 
 type Props = {
-  options: Options
-  onChange: (newOptions: Options) => void
+  options: IOption
+  onChange: (newOptions: IOption) => void
 }
 
 export const OptionForm = (props: Props): JSX.Element => (
