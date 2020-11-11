@@ -9,7 +9,7 @@ import { IGame } from '../interfaces/game'
 
 export default function CustomApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    rootRef.once('value').then((snapshot) => {
+    rootRef.on('value', (snapshot) => {
       const snapshotValue = snapshot.val()
       const game: Partial<IGame> = snapshotValue.game ?? {}
       store.dispatch(gameSlice.actions.setGame(game))
@@ -21,6 +21,7 @@ export default function CustomApp({ Component, pageProps }: AppProps) {
     })
 
     return () => {
+      rootRef.off()
       unsubscribe()
     }
   }, [])
