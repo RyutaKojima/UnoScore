@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
+import { initialState as initialOptionState } from '../hooks/use-option'
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -17,4 +18,14 @@ if (!firebase.apps.length) {
 
 export const db = firebase.database()
 
-export const rootRef = db.ref('/')
+export const roundsRef = db.ref('rounds')
+export const playersRef = db.ref('players')
+export const optionRef = db.ref('option')
+
+export const initializeDatabase = async () => {
+  await Promise.all([
+    roundsRef.set([]),
+    playersRef.set([]),
+    optionRef.set(initialOptionState),
+  ])
+}
