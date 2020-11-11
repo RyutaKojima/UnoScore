@@ -71,3 +71,5 @@ export const ScoreInput: React.FC<Props> = ({
     </>
   )
 }
+
+export const MemorizedScoreInput = React.memo(ScoreInput)

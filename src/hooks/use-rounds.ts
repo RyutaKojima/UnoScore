@@ -1,14 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { RootStateType } from '../store'
-import { gameSlice } from '../store/game'
 import { IRound } from '../interfaces/round'
+import { useEffect, useState } from 'react'
+import { roundsRef } from '../plugins/firebase'
 
-export const useRounds = (): [IRound[], (rounds: IRound[]) => void] => {
-  const rounds = useSelector((state: RootStateType) => state.game.rounds)
+type IRounds = IRound[]
 
-  const dispatch = useDispatch()
-  const setRounds = (rounds: IRound[]) =>
-    dispatch(gameSlice.actions.setRounds(rounds))
+export const useRounds = (): [IRounds, (rounds: IRounds) => void] => {
+  const [rounds, setRounds] = useState<IRounds>([])
 
-  return [rounds, setRounds]
+  useEffect(() => {
+    roundsRef.on('value', (snapshot) => {
+      setRounds(snapshot.val() ?? [])
+    })
+  }, [])
+
+  const updateDatabase = async (newRounds: IRounds) => {
+    await roundsRef.set(newRounds)
+  }
+
+  return [rounds, updateDatabase]
 }

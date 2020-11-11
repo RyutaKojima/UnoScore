@@ -1,13 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { RootStateType } from '../store'
-import { gameSlice } from '../store/game'
+import { playersRef } from '../plugins/firebase'
+import { useEffect, useState } from 'react'
 
-export const usePlayers = (): [string[], (players: string[]) => void] => {
-  const players = useSelector((state: RootStateType) => state.game.players)
+type IPlayers = string[]
 
-  const dispatch = useDispatch()
-  const setPlayers = (players: string[]) =>
-    dispatch(gameSlice.actions.setPlayers(players))
+export const usePlayers = (): [IPlayers, (players: IPlayers) => void] => {
+  const [players, setPlayers] = useState<IPlayers>([])
 
-  return [players, setPlayers]
+  useEffect(() => {
+    playersRef.on('value', (snapshot) => {
+      setPlayers(snapshot.val() ?? [])
+    })
+  }, [])
+
+  const updateDatabase = async (newPlayers: IPlayers) => {
+    await playersRef.set(newPlayers)
+  }
+
+  return [players, updateDatabase]
 }

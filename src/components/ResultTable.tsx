@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react'
-import { Options } from '../pages'
 import { TableCell } from './TableCell'
 import { Label } from './Label'
 import { IResult } from '../interfaces/result'
 import { ResultTableFooter } from './ResultTableFooter'
+import { IOption } from '../interfaces/option'
 
 type Props = {
   players: string[]
   rounds: number[][]
-  options: Options
+  options: IOption
 }
 
 type ResultRow = IResult[]

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Label } from './Label'
 import { TableCell } from './TableCell'
-import { ScoreInput } from './ScoreInput'
+import { MemorizedScoreInput } from './ScoreInput'
 import { ToggleButton } from './ToggleButton'
 
 type Props = {
@@ -36,13 +36,13 @@ export const ScoreTable = (props: Props): JSX.Element => {
   const roundsDom = rounds.map((round, roundIndex) => {
     const tdDoms = round.map((score, index) => (
       <TableCell key={`column-${roundIndex}-${index}`} className="px-2 py-1">
-        <ScoreInput
+        <MemorizedScoreInput
           id={`${roundIndex}-${index}`}
           isSelectCardMode={isSelectCardMode}
           value={score}
           onChange={(score) => handleOnChangeScore(score, roundIndex, index)}
           disabled={roundIndex !== rounds.length - 1}
-          className="form-input w-full disabled:bg-gray-300"
+          className="form-input w-full disabled:bg-gray-300 p-1"
         />
       </TableCell>
     ))
