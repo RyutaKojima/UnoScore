@@ -11,12 +11,7 @@ import { useRounds } from '../hooks/use-rounds'
 import { usePlayers } from '../hooks/use-players'
 import { useOption } from '../hooks/use-option'
 import { ResetGameButton } from '../components/RestGameButton'
-
-export type Options = {
-  rescueSecond: boolean
-  rescueThird: boolean
-  magnification: number
-}
+import { IOption } from '../interfaces/option'
 
 export const Home = (): JSX.Element => {
   const [errors, setErrors] = useState<string[]>([])
@@ -78,7 +73,7 @@ export const Home = (): JSX.Element => {
       <Section title="Step.1 Initial settings" className="space-y-4">
         <OptionForm
           options={option}
-          onChange={(newOptions: Options) => setOption(newOptions)}
+          onChange={(newOptions: IOption) => setOption(newOptions)}
         />
 
         <label className="block mt-4">
