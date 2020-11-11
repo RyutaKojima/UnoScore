@@ -1,11 +1,30 @@
 import React from 'react'
 import { render } from '../testUtils'
+import { HomePage } from '../../components/HomePage'
 // import { render, fireEvent } from '../testUtils'
-import { Home } from '../../pages/index'
 
 describe('Home page', () => {
   it('matches snapshot', () => {
-    const { asFragment } = render(<Home />, {})
+    const handleSet = () => {
+      return
+    }
+
+    const { asFragment } = render(
+      <HomePage
+        rounds={[]}
+        players={[]}
+        option={{
+          rescueSecond: true,
+          rescueThird: false,
+          magnification: 1,
+        }}
+        setRounds={handleSet}
+        setPlayers={handleSet}
+        setOption={handleSet}
+        initializeDatabase={handleSet}
+      />,
+      {}
+    )
     expect(asFragment()).toMatchSnapshot()
   })
   //   it('clicking button triggers alert', () => {
