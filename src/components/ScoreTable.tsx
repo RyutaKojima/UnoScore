@@ -42,7 +42,7 @@ export const ScoreTable = (props: Props): JSX.Element => {
           value={score}
           onChange={(score) => handleOnChangeScore(score, roundIndex, index)}
           disabled={roundIndex !== rounds.length - 1}
-          className="form-input w-full disabled:bg-gray-300"
+          className="form-input w-full disabled:bg-gray-300 p-1"
         />
       </TableCell>
     ))
