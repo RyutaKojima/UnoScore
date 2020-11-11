@@ -47,36 +47,6 @@ export const ResultTable = (props: Props): JSX.Element => {
     [props.rounds, props.options]
   )
 
-  const nameHeader = props.players.map((name) => (
-    <th key={`result-head-${name}`} className="border">
-      <Label>{name}</Label>
-    </th>
-  ))
-
-  const body = results.map((row, line) => {
-    const tds = row.map((column, index) => (
-      <TableCell key={`col-${line}-${index}`} className="text-center border">
-        <div>
-          <span className="text-xxs font-bold text-gray-600">
-            {column.rank}位
-          </span>
-        </div>
-        <div>
-          <span className="font-bold text-gray-800">{column.score}</span>
-        </div>
-      </TableCell>
-    ))
-
-    return (
-      <tr key={`line-${line}`}>
-        <TableCell className="text-center border">
-          <span className="text-xs font-bold text-gray-500">{line + 1}</span>
-        </TableCell>
-        {tds}
-      </tr>
-    )
-  })
-
   return (
     <table className="table-fixed w-full">
       <thead>
@@ -84,10 +54,43 @@ export const ResultTable = (props: Props): JSX.Element => {
           <th className="border">
             <span className="text-xs font-bold text-gray-500">Round</span>
           </th>
-          {nameHeader}
+          {props.players.map((name) => (
+            <th key={`result-head-${name}`} className="border">
+              <Label>{name}</Label>
+            </th>
+          ))}
         </tr>
       </thead>
-      <tbody>{body}</tbody>
+      <tbody>
+        {results.map((row, line) => {
+          return (
+            <tr key={`line-${line}`}>
+              <TableCell className="text-center border">
+                <span className="text-xs font-bold text-gray-500">
+                  {line + 1}
+                </span>
+              </TableCell>
+              {row.map((column, index) => (
+                <TableCell
+                  key={`col-${line}-${index}`}
+                  className="text-center border"
+                >
+                  <div>
+                    <span className="text-xxs font-bold text-gray-600">
+                      {column.rank}位
+                    </span>
+                  </div>
+                  <div>
+                    <span className="font-bold text-gray-800">
+                      {column.score}
+                    </span>
+                  </div>
+                </TableCell>
+              ))}
+            </tr>
+          )
+        })}
+      </tbody>
       <ResultTableFooter
         results={results}
         magnification={props.options.magnification}

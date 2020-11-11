@@ -33,37 +33,6 @@ export const ScoreTable = (props: Props): JSX.Element => {
     props.onChange(inputScore, roundIndex, scoreIndex)
   }
 
-  const roundsDom = rounds.map((round, roundIndex) => {
-    const tdDoms = round.map((score, index) => (
-      <TableCell key={`column-${roundIndex}-${index}`} className="px-2 py-1">
-        <MemorizedScoreInput
-          id={`${roundIndex}-${index}`}
-          isSelectCardMode={isSelectCardMode}
-          value={score}
-          onChange={(score) => handleOnChangeScore(score, roundIndex, index)}
-          disabled={roundIndex !== rounds.length - 1}
-          className="form-input w-full disabled:bg-gray-300 p-1"
-        />
-      </TableCell>
-    ))
-    return (
-      <tr key={`round-${roundIndex}`}>
-        <TableCell className="text-center">
-          <span className="text-xs font-bold text-gray-600">
-            {roundIndex + 1}
-          </span>
-        </TableCell>
-        {tdDoms}
-      </tr>
-    )
-  })
-
-  const playersDom = players.map((name) => (
-    <TableCell key={name} className="text-center">
-      <Label>{name}</Label>
-    </TableCell>
-  ))
-
   return (
     <>
       <div className="text-right">
@@ -79,10 +48,43 @@ export const ScoreTable = (props: Props): JSX.Element => {
             <TableCell>
               <span className="text-xs font-bold text-gray-600">Round</span>
             </TableCell>
-            {playersDom}
+            {players.map((name) => (
+              <TableCell key={name} className="text-center">
+                <Label>{name}</Label>
+              </TableCell>
+            ))}
           </tr>
         </thead>
-        <tbody>{roundsDom}</tbody>
+        <tbody>
+          {rounds.map((round, roundIndex) => {
+            return (
+              <tr key={`round-${roundIndex}`}>
+                <TableCell className="text-center">
+                  <span className="text-xs font-bold text-gray-600">
+                    {roundIndex + 1}
+                  </span>
+                </TableCell>
+                {round.map((score, index) => (
+                  <TableCell
+                    key={`column-${roundIndex}-${index}`}
+                    className="px-2 py-1"
+                  >
+                    <MemorizedScoreInput
+                      id={`${roundIndex}-${index}`}
+                      isSelectCardMode={isSelectCardMode}
+                      value={score}
+                      onChange={(score) =>
+                        handleOnChangeScore(score, roundIndex, index)
+                      }
+                      disabled={roundIndex !== rounds.length - 1}
+                      className="form-input w-full disabled:bg-gray-300 p-1"
+                    />
+                  </TableCell>
+                ))}
+              </tr>
+            )
+          })}
+        </tbody>
       </table>
     </>
   )
