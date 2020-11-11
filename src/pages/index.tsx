@@ -10,7 +10,7 @@ import { Label } from '../components/Label'
 import { useRounds } from '../hooks/use-rounds'
 import { usePlayers } from '../hooks/use-players'
 import { useOption } from '../hooks/use-option'
-import { ResetGameButton } from '../components/RestGameButton'
+import { ResetGameButton } from '../components/ResetGameButton'
 import { IOption } from '../interfaces/option'
 
 export const Home = (): JSX.Element => {
