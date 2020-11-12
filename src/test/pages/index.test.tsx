@@ -18,7 +18,8 @@ describe('Home page', () => {
           rescueThird: false,
           magnification: 1,
         }}
-        setRounds={handleSet}
+        addRound={handleSet}
+        setScore={handleSet}
         setPlayers={handleSet}
         setOption={handleSet}
         initializeDatabase={handleSet}
