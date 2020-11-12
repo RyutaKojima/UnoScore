@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { CARDS } from '../constants/cards'
 import Image from 'next/image'
 import { ICard } from '../interfaces/card'
@@ -20,12 +20,25 @@ export const SelectCardModal: React.FC<Props> = ({
 }) => {
   const [selectedCards, setSelectedCards] = useState<ICard[]>([])
 
-  useEffect(() => {
-    const score = selectedCards
-      .map((card) => card.score)
-      .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+  const isFirstRender = useRef(false)
 
-    onChange(score)
+  useEffect(() => {
+    isFirstRender.current = true
+  }, [])
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+    } else {
+      const score = selectedCards
+        .map((card) => card.score)
+        .reduce(
+          (previousValue, currentValue) => previousValue + currentValue,
+          0
+        )
+
+      onChange(score)
+    }
   }, [selectedCards])
 
   const handleOnClickCard = (selectedCard: ICard) => {
