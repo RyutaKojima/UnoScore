@@ -5,7 +5,7 @@ import { useOption } from '../hooks/use-option'
 import { initializeDatabase } from '../plugins/firebase'
 
 export const HomeContainer = () => {
-  const [rounds, setRounds] = useRounds()
+  const { rounds, addRound, setScore } = useRounds()
   const [players, setPlayers] = usePlayers()
   const [option, setOption] = useOption()
 
@@ -13,7 +13,8 @@ export const HomeContainer = () => {
     <HomePage
       {...{
         rounds,
-        setRounds,
+        addRound,
+        setScore,
         players,
         setPlayers,
         option,

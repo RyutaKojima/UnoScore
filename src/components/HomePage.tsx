@@ -1,5 +1,5 @@
 import React, { ChangeEvent, ComponentProps, useState } from 'react'
-import { deepCopy, filledArray, lastOfArray } from '../utils/utils'
+import { lastOfArray } from '../utils/utils'
 import { ScoreTable } from './ScoreTable'
 import { BaseLayout } from '../layouts/BaseLayout'
 import { Section } from './Section'
@@ -13,7 +13,8 @@ import { IRound } from '../interfaces/round'
 
 type Props = {
   rounds: IRound[]
-  setRounds: (rounds: IRound[]) => void
+  addRound: (numberOfPlayers: number) => void
+  setScore: (roundIndex: number, playerIndex: number, score: number) => void
   players: string[]
   setPlayers: (players: string[]) => void
   option: IOption
@@ -23,7 +24,8 @@ type Props = {
 
 export const HomePage: React.FC<Props> = ({
   rounds,
-  setRounds,
+  addRound,
+  setScore,
   players,
   setPlayers,
   option,
@@ -59,9 +61,7 @@ export const HomePage: React.FC<Props> = ({
     roundIndex,
     index
   ) => {
-    const newRounds = deepCopy(rounds)
-    newRounds[roundIndex][index] = score
-    setRounds(newRounds)
+    setScore(roundIndex, index, score)
   }
 
   const handleAddRound = (): void => {
@@ -73,9 +73,7 @@ export const HomePage: React.FC<Props> = ({
       setErrors(['スコアが未入力のプレイヤーがいます'])
       return
     }
-    const newRounds = deepCopy(rounds)
-    newRounds.push(filledArray<number>(players.length, 0))
-    setRounds(newRounds)
+    addRound(players.length)
   }
 
   return (
