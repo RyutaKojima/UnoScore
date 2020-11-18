@@ -45,11 +45,14 @@ export const ScoreTable = (props: Props): JSX.Element => {
       <table className="table-auto w-full">
         <thead>
           <tr>
-            <TableCell>
+            <TableCell className="sticky top-0 bg-white">
               <span className="text-xs font-bold text-gray-600">Round</span>
             </TableCell>
             {players.map((name) => (
-              <TableCell key={name} className="text-center">
+              <TableCell
+                key={name}
+                className="text-center sticky top-0 bg-white"
+              >
                 <Label>{name}</Label>
               </TableCell>
             ))}
