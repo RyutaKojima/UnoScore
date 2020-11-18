@@ -1,0 +1,16 @@
+{
+  "name": "UnoScore",
+  "short_name": "UnoScore",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#edf2f7",
+  "background_color": "#000",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icons/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
