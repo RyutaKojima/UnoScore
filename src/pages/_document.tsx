@@ -8,7 +8,7 @@ import NextDocument, {
 
 export default class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
+    const initialProps = await NextDocument.getInitialProps(ctx)
     return { ...initialProps }
   }
 
