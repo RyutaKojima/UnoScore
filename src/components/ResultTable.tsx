@@ -51,11 +51,14 @@ export const ResultTable = (props: Props): JSX.Element => {
     <table className="table-fixed w-full">
       <thead>
         <tr>
-          <th className="border">
+          <th className="border sticky top-0 bg-white">
             <span className="text-xs font-bold text-gray-500">Round</span>
           </th>
           {props.players.map((name) => (
-            <th key={`result-head-${name}`} className="border">
+            <th
+              key={`result-head-${name}`}
+              className="border sticky top-0 bg-white"
+            >
               <Label>{name}</Label>
             </th>
           ))}
