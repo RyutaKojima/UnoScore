@@ -18,7 +18,7 @@ export const SelectedCardList: React.FC<Props> = ({
   setSelectedCards,
   className,
 }) => {
-  const handleRemoveCard = (targetIndex) => {
+  const handleRemoveCard = (targetIndex: number) => {
     const filteredCards = selectedCards.filter(
       (_, index) => index !== targetIndex
     )

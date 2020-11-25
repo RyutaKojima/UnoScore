@@ -35,7 +35,7 @@ export const ScoreInput: React.FC<Props> = ({
   const handleOnFocus = () => {
     setIsFocus(true)
     if (isSelectCardMode) {
-      inputRef.current.blur()
+      inputRef.current?.blur()
       openScoreModal()
     }
   }

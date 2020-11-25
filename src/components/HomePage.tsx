@@ -35,7 +35,7 @@ export const HomePage: React.FC<Props> = ({
   const [errors, setErrors] = useState<string[]>([])
 
   const isInputScoreValid = (): boolean => {
-    const currentRound: number[] = lastOfArray<number[]>(rounds)
+    const currentRound: null | number[] = lastOfArray<number[]>(rounds)
     if (currentRound === null) {
       return true
     }

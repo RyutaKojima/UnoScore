@@ -1,4 +1,5 @@
-export const deepCopy = (obj) => JSON.parse(JSON.stringify(obj))
+export const deepCopy: <T = any>(obj: T) => T = (obj) =>
+  JSON.parse(JSON.stringify(obj))
 
 export const firstOfArray: <T>(targetArray: Array<T>) => T | null = (
   targetArray
