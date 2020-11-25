@@ -51,7 +51,7 @@ export const SelectCardModal: React.FC<Props> = ({
   }
 
   return (
-    <BaseModal isShow={isShow}>
+    <BaseModal isShow={!!isShow}>
       <div className="absolute top-0 right-0 p-4">
         <button onClick={handleClose}>
           <CloseCircleIcon className="w-6 h-6 text-gray-800" />

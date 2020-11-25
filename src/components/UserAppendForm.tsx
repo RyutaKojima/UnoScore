@@ -11,7 +11,7 @@ export const UserAppendForm = (props: Props): JSX.Element => {
   const textInputRef = React.createRef<HTMLInputElement>()
 
   const focusText = (): void => {
-    textInputRef.current.focus()
+    textInputRef.current?.focus()
   }
 
   const clearName = (): void => {
