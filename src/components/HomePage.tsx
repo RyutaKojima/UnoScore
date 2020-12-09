@@ -73,6 +73,7 @@ export const HomePage: React.FC<Props> = ({
       setErrors(['スコアが未入力のプレイヤーがいます'])
       return
     }
+    setErrors([])
     addRound(players.length)
   }
 
