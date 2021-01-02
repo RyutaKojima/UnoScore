@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@tailwindcss/custom-forms": "0.2.1",
-    "@testing-library/react": "10.4.9",
+    "@testing-library/react": "11.2.2",
     "@types/body-scroll-lock": "2.6.1",
     "@types/firebase": "3.2.1",
     "@types/jest": "25.2.3",
