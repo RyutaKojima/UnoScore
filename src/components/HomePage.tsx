@@ -10,6 +10,8 @@ import { UserAppendForm } from './UserAppendForm'
 import { ResultTable } from './ResultTable'
 import { ResetGameButton } from './ResetGameButton'
 import { IRound } from '../interfaces/round'
+import { ExclamationIcon } from './icons/ExclamationIcon'
+import clsx from 'clsx'
 
 type Props = {
   rounds: IRound[]
@@ -32,6 +34,7 @@ export const HomePage: React.FC<Props> = ({
   setOption,
   initializeDatabase,
 }) => {
+  const [isForceChange, setIsForceChange] = useState(false)
   const [errors, setErrors] = useState<string[]>([])
 
   const isInputScoreValid = (): boolean => {
@@ -77,6 +80,21 @@ export const HomePage: React.FC<Props> = ({
     addRound(players.length)
   }
 
+  const toggleForceChange = (): void => {
+    if (!process.browser) {
+      return
+    }
+
+    if (isForceChange) {
+      setIsForceChange(false)
+    } else {
+      const result = window.confirm('強制修正モードを有効化しますか？')
+      if (result) {
+        setIsForceChange(true)
+      }
+    }
+  }
+
   return (
     <BaseLayout
       containerClass="bg-gray-200"
@@ -106,8 +124,19 @@ export const HomePage: React.FC<Props> = ({
         <UserAppendForm onAppended={handleAppendUser} />
       </Section>
 
-      <Section title="Step.2 Input scores">
+      <Section title="Step.2 Input scores" className="relative">
+        <div className="absolute right-0 top-0 p-4">
+          <button className="flex items-center" onClick={toggleForceChange}>
+            <ExclamationIcon
+              className={clsx('w-6 h-6', {
+                'text-gray-400': !isForceChange,
+                'text-red-600': isForceChange,
+              })}
+            />
+          </button>
+        </div>
         <ScoreTable
+          isForceChange={isForceChange}
           players={players}
           rounds={rounds}
           onChange={handleOnChangeScore}
