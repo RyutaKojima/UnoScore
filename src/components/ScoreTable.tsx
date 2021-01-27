@@ -7,12 +7,12 @@ import { ToggleButton } from './ToggleButton'
 type Props = {
   players: string[]
   rounds: number[][]
+  isForceChange: boolean
   onChange: (score: number, roundIndex: number, index: number) => void
 }
 
 export const ScoreTable = (props: Props): JSX.Element => {
-  const players = props.players
-  const rounds = props.rounds
+  const { players, rounds, isForceChange } = props
 
   const [isSelectCardMode, setIsSelectCardMode] = useState(false)
 
@@ -79,7 +79,9 @@ export const ScoreTable = (props: Props): JSX.Element => {
                       onChange={(score) =>
                         handleOnChangeScore(score, roundIndex, index)
                       }
-                      disabled={roundIndex !== rounds.length - 1}
+                      disabled={
+                        !isForceChange && roundIndex !== rounds.length - 1
+                      }
                       className="form-input w-full disabled:bg-gray-300 p-1"
                     />
                   </TableCell>
