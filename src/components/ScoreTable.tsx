@@ -14,7 +14,7 @@ type Props = {
 export const ScoreTable = (props: Props): JSX.Element => {
   const { players, rounds, isForceChange } = props
 
-  const [isSelectCardMode, setIsSelectCardMode] = useState(false)
+  const [isSelectCardMode, setIsSelectCardMode] = useState(true)
 
   const handleOnChangeScore = (
     inputScore: number,
