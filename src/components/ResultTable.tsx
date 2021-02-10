@@ -4,6 +4,7 @@ import { Label } from './Label'
 import { IResult } from '../interfaces/result'
 import { ResultTableFooter } from './ResultTableFooter'
 import { IOption } from '../interfaces/option'
+import clsx from 'clsx'
 
 type Props = {
   players: string[]
@@ -79,8 +80,16 @@ export const ResultTable = (props: Props): JSX.Element => {
                   className="text-center border"
                 >
                   <div>
-                    <span className="text-xxs font-bold text-gray-600">
-                      {column.rank}位
+                    <span className="text-xxs font-bold">
+                      <span
+                        className={clsx({
+                          'text-orange-600': column.rank === 1,
+                          'text-blue-600': column.rank === 2,
+                          'text-gray-600': column.rank >= 3,
+                        })}
+                      >
+                        {column.rank}位
+                      </span>
                     </span>
                   </div>
                   <div>
