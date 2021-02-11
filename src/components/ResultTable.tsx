@@ -122,7 +122,14 @@ export const ResultTable = (props: Props): JSX.Element => {
                       {column.score}
                     </span>
                   </div>
-                  <div className="text-xxs border-t">{column.total}</div>
+                  <div
+                    className={clsx('text-xxs border-t', {
+                      'text-gray-800': column.total >= 0,
+                      'text-red-600': column.total < 0,
+                    })}
+                  >
+                    {column.total}
+                  </div>
                 </TableCell>
               ))}
             </tr>
