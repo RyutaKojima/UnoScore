@@ -22,39 +22,54 @@ const getRankColor = (rank: number): string => {
   })
 }
 
+const getFinalScore = (
+  rank: number,
+  rawScore: number,
+  options: IOption
+): number => {
+  if (rank === 2 && options.rescueSecond) {
+    return 0
+  }
+  if (rank === 3 && options.rescueThird) {
+    return 0
+  }
+
+  return rawScore
+}
+
 export const ResultTable = (props: Props): JSX.Element => {
-  const results = useMemo(
-    () =>
-      props.rounds.map((round) => {
-        const ranking: ResultRow = round.map((v) => ({
-          rank: round.filter((target) => v > target).length + 1,
-          score: v,
-        }))
+  const results = useMemo(() => {
+    let prevRound: IResult[] = []
+    return props.rounds.map((round) => {
+      const ranking: ResultRow = round.map((v) => ({
+        rank: round.filter((target) => v > target).length + 1,
+        score: v,
+        total: 0,
+      }))
 
-        const rescued: ResultRow = ranking.map((v) => {
-          if (v.rank === 2 && props.options.rescueSecond) {
-            return { ...v, score: 0 }
-          }
-          if (v.rank === 3 && props.options.rescueThird) {
-            return { ...v, score: 0 }
-          }
-          return { ...v, score: v.score }
-        })
+      const rescued: ResultRow = ranking.map((v) => ({
+        ...v,
+        score: getFinalScore(v.rank, v.score, props.options),
+      }))
 
-        const sumScore: number = rescued.reduce(
-          (prev, current) => prev + current.score,
-          0
-        )
+      const roundScoreTotal: number = rescued.reduce(
+        (prev, current) => prev + current.score,
+        0
+      )
 
-        return rescued.map((v) => {
-          return {
-            ...v,
-            score: v.rank === 1 ? sumScore : v.score * -1,
-          }
-        })
-      }),
-    [props.rounds, props.options]
-  )
+      const fixCurrentRound = rescued.map((v, index) => {
+        const score = v.rank === 1 ? roundScoreTotal : v.score * -1
+        return {
+          ...v,
+          score,
+          total: score + (prevRound[index]?.total ?? 0),
+        }
+      })
+
+      prevRound = fixCurrentRound
+      return fixCurrentRound
+    })
+  }, [props.rounds, props.options])
 
   return (
     <table className="table-fixed w-full">
@@ -107,6 +122,7 @@ export const ResultTable = (props: Props): JSX.Element => {
                       {column.score}
                     </span>
                   </div>
+                  <div className="text-xxs border-t">{column.total}</div>
                 </TableCell>
               ))}
             </tr>
