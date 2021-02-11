@@ -2,6 +2,7 @@ import React from 'react'
 import { TableCell } from './TableCell'
 import { sumArray } from '../utils/utils'
 import { IResult } from '../interfaces/result'
+import clsx from 'clsx'
 
 type Props = {
   results: IResult[][]
@@ -36,7 +37,14 @@ export const ResultTableFooter: React.FC<Props> = ({
             key={`result-score-${index}`}
             className="text-center border"
           >
-            <span className="font-bold text-gray-800">{score}</span>
+            <span
+              className={clsx('font-bold', {
+                'text-gray-800': score >= 0,
+                'text-red-600': score < 0,
+              })}
+            >
+              {score}
+            </span>
           </TableCell>
         ))}
       </tr>
@@ -48,7 +56,14 @@ export const ResultTableFooter: React.FC<Props> = ({
         </th>
         {finalScores.map((score, index) => (
           <TableCell key={`final-${index}`} className="text-center border">
-            <span className="font-bold text-gray-800">{score}</span>
+            <span
+              className={clsx('font-bold', {
+                'text-gray-800': score >= 0,
+                'text-red-600': score < 0,
+              })}
+            >
+              {score}
+            </span>
           </TableCell>
         ))}
       </tr>
