@@ -14,6 +14,14 @@ type Props = {
 
 type ResultRow = IResult[]
 
+const getRankColor = (rank: number): string => {
+  return clsx('font-bold', {
+    'text-orange-600': rank === 1,
+    'text-blue-600': rank === 2,
+    'text-gray-600': rank >= 3,
+  })
+}
+
 export const ResultTable = (props: Props): JSX.Element => {
   const results = useMemo(
     () =>
@@ -80,20 +88,22 @@ export const ResultTable = (props: Props): JSX.Element => {
                   className="text-center border"
                 >
                   <div>
-                    <span className="text-xxs font-bold">
-                      <span
-                        className={clsx({
-                          'text-orange-600': column.rank === 1,
-                          'text-blue-600': column.rank === 2,
-                          'text-gray-600': column.rank >= 3,
-                        })}
-                      >
-                        {column.rank}位
-                      </span>
+                    <span
+                      className={clsx(
+                        'text-xxs font-bold',
+                        getRankColor(column.rank)
+                      )}
+                    >
+                      {column.rank}位
                     </span>
                   </div>
                   <div>
-                    <span className="font-bold text-gray-800">
+                    <span
+                      className={clsx({
+                        'text-gray-800': column.score >= 0,
+                        'text-red-600': column.score < 0,
+                      })}
+                    >
                       {column.score}
                     </span>
                   </div>
