@@ -25,7 +25,7 @@ export const ResultChart = (props: Props): JSX.Element => {
       name: `R-${roundIndex + 1}`,
     }
     props.players.forEach((name, playerIndex) => {
-      chart[name] = round[playerIndex].total
+      chart[name] = round[playerIndex]?.total ?? 0
     })
 
     return chart
