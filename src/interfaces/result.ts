@@ -3,3 +3,5 @@ export type IResult = {
   score: number
   total: number
 }
+
+export type ResultRow = IResult[]

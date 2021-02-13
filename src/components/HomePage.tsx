@@ -7,7 +7,7 @@ import { OptionForm } from './OptionForm'
 import { IOption } from '../interfaces/option'
 import { Label } from './Label'
 import { UserAppendForm } from './UserAppendForm'
-import { ResultTable } from './ResultTable'
+import { Result } from './Result'
 import { ResetGameButton } from './ResetGameButton'
 import { IRound } from '../interfaces/round'
 import { ExclamationIcon } from './icons/ExclamationIcon'
@@ -153,7 +153,10 @@ export const HomePage: React.FC<Props> = ({
       </Section>
 
       <Section title="Step.3 Results">
-        <ResultTable players={players} rounds={rounds} options={option} />
+        <Result players={players} rounds={rounds} options={option} />
+      </Section>
+
+      <Section title="Step.4 Clear">
         <div className="text-center mt-4">
           <ResetGameButton onReset={initializeDatabase} />
         </div>
