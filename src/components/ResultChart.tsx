@@ -1,5 +1,15 @@
 import React from 'react'
-import { ReferenceLine, CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis, Legend } from 'recharts'
+import {
+  ReferenceLine,
+  CartesianGrid,
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+  Legend,
+  ResponsiveContainer
+} from 'recharts'
 import { IOption } from '../interfaces/option'
 import { ResultRow } from '../interfaces/result'
 
@@ -32,11 +42,10 @@ export const ResultChart = (props: Props): JSX.Element => {
   })
 
   return (
+    <ResponsiveContainer width="100%" height={400}>
     <LineChart
-      width={400}
-      height={400}
       data={data}
-      margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
+      margin={{ top: 5, right: 0, left: 0, bottom: 5 }}
     >
       {props.players.map((name, index) => (
         <Line
@@ -54,5 +63,6 @@ export const ResultChart = (props: Props): JSX.Element => {
       <Tooltip />
       <Legend verticalAlign="top" height={36}/>
     </LineChart>
+    </ResponsiveContainer>
   )
 }
