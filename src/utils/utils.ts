@@ -36,3 +36,7 @@ export const sumArray: (arr1: number[], arr2: number[]) => number[] = (
     return v + add
   })
 }
+
+export const sum = (numbers: number[]): number => {
+  return numbers.reduce((prev, current) => prev + current, 0)
+}
