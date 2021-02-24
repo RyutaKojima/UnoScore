@@ -12,6 +12,14 @@ import { ResetGameButton } from './ResetGameButton'
 import { IRound } from '../interfaces/round'
 import { ExclamationIcon } from './icons/ExclamationIcon'
 import clsx from 'clsx'
+import dynamic from 'next/dynamic'
+import { MAGNIFICATIONS } from '../constants/magnifications'
+import { IMagnification } from '../interfaces/magnification'
+
+const DynamicMagnificationRoulette = dynamic(
+  () => import('./dynamics/MagnificationRoulette'),
+  { ssr: false }
+)
 
 type Props = {
   rounds: IRound[]
@@ -46,10 +54,18 @@ export const HomePage: React.FC<Props> = ({
     return currentRound.filter((score) => score === 0).length === 1
   }
 
+  const isMagnificationRandom =
+    option.magnification === MAGNIFICATIONS.random.value
+
   const handleOnChangeMagnification = (
     e: ChangeEvent<HTMLSelectElement>
   ): void => {
-    setOption({ ...option, magnification: Number(e.target.value) })
+    const magnification: IMagnification =
+      e.target.value === MAGNIFICATIONS.random.value
+        ? MAGNIFICATIONS.random.value
+        : Number(e.target.value)
+
+    setOption({ ...option, magnification })
   }
 
   const handleAppendUser = (name: string): void => {
@@ -113,11 +129,14 @@ export const HomePage: React.FC<Props> = ({
             className="form-select mt-1 block w-full"
             onChange={handleOnChangeMagnification}
           >
-            <option value="1">x1</option>
-            <option value="2">x2</option>
-            <option value="3">x3</option>
-            <option value="4">x4</option>
-            <option value="5">x5</option>
+            {Object.values(MAGNIFICATIONS).map((mag) => (
+              <option
+                key={`magnification-option-${mag.value}`}
+                value={mag.value}
+              >
+                {mag.label}
+              </option>
+            ))}
           </select>
         </label>
 
@@ -156,7 +175,13 @@ export const HomePage: React.FC<Props> = ({
         <Result players={players} rounds={rounds} options={option} />
       </Section>
 
-      <Section title="Step.4 Clear">
+      {isMagnificationRandom && (
+        <Section title="Step.4 Magnification Roulette">
+          <DynamicMagnificationRoulette option={option} setOption={setOption} />
+        </Section>
+      )}
+
+      <Section title={`Step.${isMagnificationRandom ? '5' : '4'} Clear`}>
         <div className="text-center mt-4">
           <ResetGameButton onReset={initializeDatabase} />
         </div>

@@ -3,10 +3,11 @@ import { TableCell } from './TableCell'
 import { sumArray } from '../utils/utils'
 import { IResult } from '../interfaces/result'
 import clsx from 'clsx'
+import { IMagnification } from '../interfaces/magnification'
 
 type Props = {
   results: IResult[][]
-  magnification: number
+  magnification: IMagnification
 }
 
 export const ResultTableFooter: React.FC<Props> = ({
@@ -22,9 +23,10 @@ export const ResultTableFooter: React.FC<Props> = ({
     return sumArray(prev, scores)
   }, [])
 
-  const finalScores: number[] = totalScores.map(
-    (score) => score * magnification
-  )
+  const finalScores: number[] | null =
+    typeof magnification === 'number'
+      ? totalScores.map((score) => score * magnification)
+      : null
 
   return (
     <tfoot>
@@ -48,25 +50,27 @@ export const ResultTableFooter: React.FC<Props> = ({
           </TableCell>
         ))}
       </tr>
-      <tr>
-        <th className="border">
-          <span className="text-xs font-bold text-gray-700">
-            合計(x{magnification})
-          </span>
-        </th>
-        {finalScores.map((score, index) => (
-          <TableCell key={`final-${index}`} className="text-center border">
-            <span
-              className={clsx('font-bold', {
-                'text-gray-800': score >= 0,
-                'text-red-600': score < 0,
-              })}
-            >
-              {score}
+      {finalScores && (
+        <tr>
+          <th className="border">
+            <span className="text-xs font-bold text-gray-700">
+              合計(x{magnification})
             </span>
-          </TableCell>
-        ))}
-      </tr>
+          </th>
+          {finalScores.map((score, index) => (
+            <TableCell key={`final-${index}`} className="text-center border">
+              <span
+                className={clsx('font-bold', {
+                  'text-gray-800': score >= 0,
+                  'text-red-600': score < 0,
+                })}
+              >
+                {score}
+              </span>
+            </TableCell>
+          ))}
+        </tr>
+      )}
     </tfoot>
   )
 }
