@@ -2,6 +2,8 @@ import { IRound } from '../interfaces/round'
 import { useEffect, useState } from 'react'
 import { roundsRef } from '../plugins/firebase'
 import { deepCopy, filledArray } from '../utils/utils'
+import { useSetRecoilState } from 'recoil'
+import { appLoadingsState } from '../store/app'
 
 type IRounds = IRound[]
 
@@ -11,9 +13,11 @@ export const useRounds = (): {
   setScore: (roundIndex: number, playerIndex: number, score: number) => void
 } => {
   const [rounds, setRounds] = useState<IRounds>([])
+  const setAppLoadings = useSetRecoilState(appLoadingsState)
 
   useEffect(() => {
     roundsRef.on('value', (snapshot) => {
+      setAppLoadings((prev) => ({ ...prev, rounds: false }))
       setRounds(snapshot.val() ? Object.values(snapshot.val()) : [])
     })
   }, [])

@@ -36,7 +36,8 @@
     "react": "17.0.1",
     "react-custom-roulette": "1.1.5",
     "react-dom": "17.0.1",
-    "recharts": "2.0.6"
+    "recharts": "2.0.6",
+    "recoil": "0.1.2"
   },
   "devDependencies": {
     "@tailwindcss/custom-forms": "0.2.1",

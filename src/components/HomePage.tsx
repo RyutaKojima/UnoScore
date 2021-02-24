@@ -15,6 +15,7 @@ import clsx from 'clsx'
 import dynamic from 'next/dynamic'
 import { MAGNIFICATIONS } from '../constants/magnifications'
 import { IMagnification } from '../interfaces/magnification'
+import { AppLoader } from './AppLoader'
 
 const DynamicMagnificationRoulette = dynamic(
   () => import('./dynamics/MagnificationRoulette'),
@@ -22,6 +23,7 @@ const DynamicMagnificationRoulette = dynamic(
 )
 
 type Props = {
+  loading: boolean
   rounds: IRound[]
   addRound: (numberOfPlayers: number) => void
   setScore: (roundIndex: number, playerIndex: number, score: number) => void
@@ -33,6 +35,7 @@ type Props = {
 }
 
 export const HomePage: React.FC<Props> = ({
+  loading,
   rounds,
   addRound,
   setScore,
@@ -116,6 +119,7 @@ export const HomePage: React.FC<Props> = ({
       containerClass="bg-gray-200"
       className="w-full max-w-xl mx-auto flex flex-col space-y-10 py-10 px-3"
     >
+      <AppLoader loading={loading} />
       <Section title="Step.1 Initial settings" className="space-y-4">
         <OptionForm
           options={option}
