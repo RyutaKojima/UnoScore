@@ -3,6 +3,7 @@ import { Wheel } from 'react-custom-roulette'
 import { WheelData } from 'react-custom-roulette/dist/components/Wheel/types'
 import { IOption } from '../../interfaces/option'
 import { MAGNIFICATIONS } from '../../constants/magnifications'
+import { sum } from '../../utils/utils'
 
 type DataItem = WheelData & {
   weight: number
@@ -71,8 +72,21 @@ export const MagnificationRoulette: React.VFC<Props> = ({
     setOption({ ...option, magnification })
   }
 
+  const getProbability = (item: DataItem) => {
+    const totalWeight = sum(data.map((v) => v.weight))
+    return Math.round((item.weight / totalWeight) * 100)
+  }
+
   return (
     <div className="flex flex-col items-center p-4">
+      <div className="border-2 ml-auto py-2 px-4 rounded">
+        {data.map((item, index) => (
+          <p key={`display-probability-${index}`} className="text-sm font-bold">
+            <span className="text-gray-700">{item.option}:</span>
+            <span className="text-gray-900 ml-2">{getProbability(item)}%</span>
+          </p>
+        ))}
+      </div>
       <Wheel
         mustStartSpinning={mustSpin}
         prizeNumber={prizeNumber}
