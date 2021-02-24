@@ -5,8 +5,9 @@ import { useOption } from '../hooks/use-option'
 import { initializeDatabase } from '../plugins/firebase'
 import { useRecoilValue } from 'recoil'
 import { isLoadingState } from '../store/app'
+import React from "react";
 
-export const HomeContainer = () => {
+export const HomeContainer: React.FC = () => {
   const loading = useRecoilValue(isLoadingState)
   const { rounds, addRound, setScore } = useRounds()
   const [players, setPlayers] = usePlayers()
