@@ -1,17 +1,17 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import {
-  ReferenceLine,
   CartesianGrid,
+  Legend,
   Line,
   LineChart,
+  ReferenceLine,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
-  Legend,
-  ResponsiveContainer
+  YAxis
 } from 'recharts'
-import { IOption } from '../interfaces/option'
-import { ResultRow } from '../interfaces/result'
+import {IOption} from '../interfaces/option'
+import {ResultRow} from '../interfaces/result'
 
 type Props = {
   players: string[]
@@ -29,25 +29,42 @@ const colorTable = [
   '#d900ff',
 ]
 
-export const ResultChart = (props: Props): JSX.Element => {
-  const data = props.results.map((round, roundIndex) => {
-    const chart: { [key: string]: string | number } = {
-      name: `R-${roundIndex + 1}`,
-    }
-    props.players.forEach((name, playerIndex) => {
-      chart[name] = round[playerIndex]?.total ?? 0
+type ChartRow = {
+  name: string
+  [key: string]: string|number
+}
+type ChartData = ChartRow[]
+
+export const ResultChart: React.VFC<Props> = ({ results, players}) => {
+  const formattedData = useMemo<ChartData>(() => {
+    const data = results.map((round, roundIndex) => {
+
+      const scores = Object.fromEntries(players.map((name, playerIndex) => {
+        const score = round[playerIndex]?.total ?? 0
+        return [name, score]
+      }))
+
+      return {
+        name: `R-${roundIndex + 1}`,
+        ...scores
+      }
     })
 
-    return chart
-  })
+    const firstRow: ChartRow = {
+      ...Object.fromEntries(players.map((name) => [name, 0])),
+      name: '',
+    }
+
+    return [firstRow, ...data]
+  }, [results, players])
 
   return (
     <ResponsiveContainer width="100%" height={400}>
     <LineChart
-      data={data}
+      data={formattedData}
       margin={{ top: 5, right: 0, left: 0, bottom: 5 }}
     >
-      {props.players.map((name, index) => (
+      {players.map((name, index) => (
         <Line
           key={`line-${index}-${name}`}
           type="monotone"
