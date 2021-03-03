@@ -1,17 +1,17 @@
 import React from 'react'
 import {
-  ReferenceLine,
   CartesianGrid,
+  Legend,
   Line,
   LineChart,
+  ReferenceLine,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
-  Legend,
-  ResponsiveContainer
+  YAxis
 } from 'recharts'
-import { IOption } from '../interfaces/option'
-import { ResultRow } from '../interfaces/result'
+import {IOption} from '../interfaces/option'
+import {ResultRow} from '../interfaces/result'
 
 type Props = {
   players: string[]
@@ -40,6 +40,15 @@ export const ResultChart = (props: Props): JSX.Element => {
 
     return chart
   })
+
+  // チャートの頭を0スタートにする
+  const first: { [key: string]: string | number } = {
+    name: '',
+  }
+  props.players.forEach((name) => {
+    first[name] = 0
+  })
+  data.unshift(first)
 
   return (
     <ResponsiveContainer width="100%" height={400}>
