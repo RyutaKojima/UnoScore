@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react'
+import React, { useMemo } from 'react'
 import {
   CartesianGrid,
   Legend,
@@ -8,10 +8,10 @@ import {
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis
+  YAxis,
 } from 'recharts'
-import {IOption} from '../interfaces/option'
-import {ResultRow} from '../interfaces/result'
+import { IOption } from '../interfaces/option'
+import { ResultRow } from '../interfaces/result'
 
 type Props = {
   players: string[]
@@ -31,22 +31,23 @@ const colorTable = [
 
 type ChartRow = {
   name: string
-  [key: string]: string|number
+  [key: string]: string | number
 }
 type ChartData = ChartRow[]
 
-export const ResultChart: React.VFC<Props> = ({ results, players}) => {
+export const ResultChart: React.VFC<Props> = ({ results, players }) => {
   const formattedData = useMemo<ChartData>(() => {
     const data = results.map((round, roundIndex) => {
-
-      const scores = Object.fromEntries(players.map((name, playerIndex) => {
-        const score = round[playerIndex]?.total ?? 0
-        return [name, score]
-      }))
+      const scores = Object.fromEntries(
+        players.map((name, playerIndex) => {
+          const score = round[playerIndex]?.total ?? 0
+          return [name, score]
+        })
+      )
 
       return {
         name: `R-${roundIndex + 1}`,
-        ...scores
+        ...scores,
       }
     })
 
