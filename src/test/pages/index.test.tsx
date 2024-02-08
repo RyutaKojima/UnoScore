@@ -5,12 +5,20 @@ import { HomePage } from '../../components/HomePage'
 
 describe('Home page', () => {
   it('matches snapshot', () => {
+    window.ResizeObserver =
+      window.ResizeObserver ||
+      jest.fn().mockImplementation(() => ({
+        disconnect: jest.fn(),
+        observe: jest.fn(),
+      }))
+
     const handleSet = () => {
       return
     }
 
     const { asFragment } = render(
       <HomePage
+        loading={false}
         rounds={[]}
         players={[]}
         option={{
