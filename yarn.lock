@@ -4042,7 +4042,7 @@ babel-loader@8.1.0:
     pify "^4.0.1"
     schema-utils "^2.6.5"
 
-babel-loader@^8.2.3:
+babel-loader@^8.2.5:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.3.0.tgz#124936e841ba4fe8176786d6ff28add1f134d6a8"
   integrity sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==
@@ -10067,17 +10067,17 @@ neo-async@^2.5.0, neo-async@^2.6.1, neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-pwa@5.4.6:
-  version "5.4.6"
-  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-5.4.6.tgz#67db147631e67076e2767555ab07324e60f4e7cf"
-  integrity sha512-cJVxfn4a1DqwKGP+zhqE9QikqFuUhCYi7wiaucxhFLeShC6DVX1Gy5Qh3HAs1i6VHQcEOnaOwfk0Q9Z08yRkCg==
+next-pwa@5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-5.6.0.tgz#f7b1960c4fdd7be4253eb9b41b612ac773392bf4"
+  integrity sha512-XV8g8C6B7UmViXU8askMEYhWwQ4qc/XqJGnexbLV68hzKaGHZDMtHsm2TNxFcbR7+ypVuth/wwpiIlMwpRJJ5A==
   dependencies:
-    babel-loader "^8.2.3"
+    babel-loader "^8.2.5"
     clean-webpack-plugin "^4.0.0"
     globby "^11.0.4"
-    terser-webpack-plugin "^5.3.1"
-    workbox-webpack-plugin "^6.5.1"
-    workbox-window "^6.5.1"
+    terser-webpack-plugin "^5.3.3"
+    workbox-webpack-plugin "^6.5.4"
+    workbox-window "^6.5.4"
 
 next-tick@^1.1.0:
   version "1.1.0"
@@ -13698,7 +13698,7 @@ terser-webpack-plugin@^1.4.3:
     webpack-sources "^1.4.0"
     worker-farm "^1.7.0"
 
-terser-webpack-plugin@^5.3.1:
+terser-webpack-plugin@^5.3.3:
   version "5.3.10"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-5.3.10.tgz#904f4c9193c6fd2a03f693a2150c62a92f40d199"
   integrity sha512-BKFPWlPDndPs+NGGCr1U59t0XScL5317Y0UReNrHaw9/FwhPENlq6bfgs+4yPfyP51vqC1bQ4rp1EfXW5ZSH9w==
@@ -15008,7 +15008,7 @@ workbox-webpack-plugin@5.1.4:
     webpack-sources "^1.3.0"
     workbox-build "^5.1.4"
 
-workbox-webpack-plugin@^6.5.1:
+workbox-webpack-plugin@^6.5.4:
   version "6.6.1"
   resolved "https://registry.yarnpkg.com/workbox-webpack-plugin/-/workbox-webpack-plugin-6.6.1.tgz#4f81cc1ad4e5d2cd7477a86ba83c84ee2d187531"
   integrity sha512-zpZ+ExFj9NmiI66cFEApyjk7hGsfJ1YMOaLXGXBoZf0v7Iu6hL0ZBe+83mnDq3YYWAfA3fnyFejritjOHkFcrA==
@@ -15019,7 +15019,7 @@ workbox-webpack-plugin@^6.5.1:
     webpack-sources "^1.4.3"
     workbox-build "6.6.1"
 
-workbox-window@6.6.1, workbox-window@^6.5.1:
+workbox-window@6.6.1, workbox-window@^6.5.4:
   version "6.6.1"
   resolved "https://registry.yarnpkg.com/workbox-window/-/workbox-window-6.6.1.tgz#f22a394cbac36240d0dadcbdebc35f711bb7b89e"
   integrity sha512-wil4nwOY58nTdCvif/KEZjQ2NP8uk3gGeRNy2jPBbzypU4BT4D9L8xiwbmDBpZlSgJd2xsT9FvSNU0gsxV51JQ==
