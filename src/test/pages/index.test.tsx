@@ -11,6 +11,7 @@ describe('Home page', () => {
 
     const { asFragment } = render(
       <HomePage
+        loading={false}
         rounds={[]}
         players={[]}
         option={{
