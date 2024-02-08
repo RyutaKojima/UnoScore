@@ -100,7 +100,7 @@ export const HomePage: React.FC<Props> = ({
   }
 
   const toggleForceChange = (): void => {
-    if (!process.browser) {
+    if (typeof window === 'undefined') {
       return
     }
 
@@ -181,6 +181,8 @@ export const HomePage: React.FC<Props> = ({
 
       {isMagnificationRandom && (
         <Section title="Step.4 Magnification Roulette">
+          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+          {/* @ts-expect-error */}
           <DynamicMagnificationRoulette option={option} setOption={setOption} />
         </Section>
       )}

@@ -60,26 +60,26 @@ export const ResultChart: React.VFC<Props> = ({ results, players}) => {
 
   return (
     <ResponsiveContainer width="100%" height={400}>
-    <LineChart
-      data={formattedData}
-      margin={{ top: 5, right: 0, left: 0, bottom: 5 }}
-    >
-      {players.map((name, index) => (
-        <Line
-          key={`line-${index}-${name}`}
-          type="monotone"
-          dataKey={name}
-          stroke={colorTable[index] ?? '#000000'}
-        />
-      ))}
+      <LineChart
+        data={formattedData}
+        margin={{ top: 5, right: 0, left: 0, bottom: 5 }}
+      >
+        {players.map((name, index) => (
+          <Line
+            key={`line-${index}-${name}`}
+            type="monotone"
+            dataKey={name}
+            stroke={colorTable[index] ?? '#000000'}
+          />
+        ))}
 
-      <ReferenceLine y={0} stroke="#ccc" ifOverflow="extendDomain" />
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend verticalAlign="top" height={36}/>
-    </LineChart>
+        <ReferenceLine y={0} stroke="#ccc" ifOverflow="extendDomain" />
+        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend verticalAlign="top" height={36} />
+      </LineChart>
     </ResponsiveContainer>
   )
 }

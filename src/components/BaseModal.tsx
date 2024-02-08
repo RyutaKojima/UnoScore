@@ -29,7 +29,8 @@ export const BaseModal: React.FC<Props> = ({ isShow, className, children }) => {
     }
   }, [isShow])
 
-  const container = process.browser ? document.querySelector('#__next') : null
+  const container =
+    typeof window !== 'undefined' ? document.querySelector('#__next') : null
 
   return container && isShow
     ? ReactDOM.createPortal(
