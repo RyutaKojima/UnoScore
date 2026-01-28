@@ -143,7 +143,7 @@ exports[`Home page matches snapshot 1`] = `
                 value=""
               />
               <button
-                class="btn bg-gradient-to-r from-teal-400 to-blue-500 text-white ml-4"
+                class="btn bg-blue-500 hover:bg-blue-600 text-white ml-4"
                 type="submit"
               >
                 add
@@ -232,7 +232,7 @@ exports[`Home page matches snapshot 1`] = `
           class="text-center mt-4"
         >
           <button
-            class="btn bg-gradient-to-r from-teal-400 to-blue-500 text-white"
+            class="btn bg-blue-500 hover:bg-blue-600 text-white"
           >
             add Round
           </button>

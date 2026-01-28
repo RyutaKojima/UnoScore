@@ -42,7 +42,7 @@ export const UserAppendForm = (props: Props): JSX.Element => {
           />
           <button
             type="submit"
-            className="btn bg-gradient-to-r from-teal-400 to-blue-500 text-white ml-4"
+            className="btn bg-blue-500 hover:bg-blue-600 text-white ml-4"
           >
             add
           </button>
