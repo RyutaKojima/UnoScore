@@ -1,5 +1,43 @@
-export const deepCopy: <T = any>(obj: T) => T = (obj) =>
-  JSON.parse(JSON.stringify(obj))
+export const deepCopy: <T = any>(obj: T) => T = (obj) => {
+  const cache = new WeakMap()
+
+  const _deepCopy = (val: any): any => {
+    if (val === null || typeof val !== 'object') {
+      return val
+    }
+
+    if (cache.has(val)) {
+      return cache.get(val)
+    }
+
+    let copy: any
+
+    if (val instanceof Date) {
+      copy = new Date(val.getTime())
+    } else if (val instanceof RegExp) {
+      copy = new RegExp(val.source, val.flags)
+    } else if (Array.isArray(val)) {
+      copy = new Array(val.length)
+      cache.set(val, copy)
+      for (let i = 0; i < val.length; i++) {
+        copy[i] = _deepCopy(val[i])
+      }
+    } else {
+      copy = {}
+      cache.set(val, copy)
+      for (const key in val) {
+        if (Object.prototype.hasOwnProperty.call(val, key)) {
+          copy[key] = _deepCopy(val[key])
+        }
+      }
+    }
+
+    cache.set(val, copy)
+    return copy
+  }
+
+  return _deepCopy(obj)
+}
 
 export const firstOfArray: <T>(targetArray: Array<T>) => T | null = (
   targetArray
