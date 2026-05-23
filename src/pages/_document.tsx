@@ -15,8 +15,6 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-expect-error */}
         <Head>
           <link
             rel="apple-touch-icon"
@@ -48,8 +46,6 @@ export default class Document extends NextDocument {
         </Head>
         <body>
           <Main />
-          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-          {/* @ts-expect-error */}
           <NextScript />
         </body>
       </Html>
