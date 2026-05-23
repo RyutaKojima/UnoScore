@@ -898,7 +898,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5":
+"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7":
   version "7.29.2"
   resolved "https://npm.flatt.tech/@babel/runtime/-/runtime-7.29.2.tgz#9a6e2d05f4b6692e1801cd4fb176ad823930ed5e"
   integrity sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==
@@ -2132,6 +2132,18 @@
   resolved "https://npm.flatt.tech/@protobufjs/utf8/-/utf8-1.1.1.tgz#eaee5900122c110a3dbcb728c0597014a2621774"
   integrity sha512-oOAWABowe8EAbMyWKM0tYDKi8Yaox52D+HWZhAIJqQXbqe0xI/GV7FhLWqlEKreMkfDjshR5FKgi3mnle0h6Eg==
 
+"@reduxjs/toolkit@^1.9.0 || 2.x.x":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-2.12.0.tgz#e62787503a38561e04bb8f39e29ca8db689590f9"
+  integrity sha512-KiT+RzZbp6mQET+Mg+h2c97+9j1sNflUxQkIHI7Yuzf6Peu+OYpmkn6nbHWmLLWj+1ZODUJFwGZ7gx3L9R9EOw==
+  dependencies:
+    "@standard-schema/spec" "^1.0.0"
+    "@standard-schema/utils" "^0.3.0"
+    immer "^11.0.0"
+    redux "^5.0.1"
+    redux-thunk "^3.1.0"
+    reselect "^5.1.0"
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
   resolved "https://npm.flatt.tech/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz#04bc0608f4aa4b2e4b1aebf284344d0f68fda283"
@@ -2192,6 +2204,16 @@
   integrity sha512-MZPUxrmFubI36XS1DI3qmI0YdN1gks62JtFZvxR67ljjSNCeK6U08Zx4msEWOXuofgqUt6zPHSi1H9fbjR/NRA==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
+
+"@standard-schema/spec@^1.0.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@standard-schema/spec/-/spec-1.1.0.tgz#a79b55dbaf8604812f52d140b2c9ab41bc150bb8"
+  integrity sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==
+
+"@standard-schema/utils@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@standard-schema/utils/-/utils-0.3.0.tgz#3d5e608f16c2390c10528e98e59aef6bf73cae7b"
+  integrity sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
@@ -2317,24 +2339,12 @@
   resolved "https://npm.flatt.tech/@types/d3-path/-/d3-path-3.1.1.tgz#f632b380c3aca1dba8e34aa049bcd6a4af23df8a"
   integrity sha512-VMZBYyQvbGmWyWVea0EHs/BwLgxc+MKi1zLDCONksozI4YJMcTt8ZEuIR4Sb1MMTE8MMW49v0IwI5+b7RmfWlg==
 
-"@types/d3-path@^1":
-  version "1.0.11"
-  resolved "https://npm.flatt.tech/@types/d3-path/-/d3-path-1.0.11.tgz#45420fee2d93387083b34eae4fe6d996edf482bc"
-  integrity sha512-4pQMp8ldf7UaB/gR8Fvvy69psNHkTpD/pVw3vmEi8iZAB9EPMBruB1JvHO4BIq9QkUUd2lV1F5YXpMNj7JPBpw==
-
 "@types/d3-scale@^4.0.2":
   version "4.0.9"
   resolved "https://npm.flatt.tech/@types/d3-scale/-/d3-scale-4.0.9.tgz#57a2f707242e6fe1de81ad7bfcccaaf606179afb"
   integrity sha512-dLmtwB8zkAeO/juAMfnV+sItKjlsw2lKdZVVy6LRr0cBmegxSABiLEpGVmSJJ8O08i4+sGR6qQtb6WtuwJdvVw==
   dependencies:
     "@types/d3-time" "*"
-
-"@types/d3-shape@^1":
-  version "1.3.12"
-  resolved "https://npm.flatt.tech/@types/d3-shape/-/d3-shape-1.3.12.tgz#8f2f9f7a12e631ce6700d6d55b84795ce2c8b259"
-  integrity sha512-8oMzcd4+poSLGgV0R1Q1rOlx/xdmozS4Xab7np0eamFFUYq71AU9pOCJEFnkXW2aI/oXdVYJzw6pssbSut7Z9Q==
-  dependencies:
-    "@types/d3-path" "^1"
 
 "@types/d3-shape@^3.1.0":
   version "3.1.8"
@@ -2461,13 +2471,6 @@
   resolved "https://npm.flatt.tech/@types/react-dom/-/react-dom-17.0.26.tgz#fa7891ba70fd39ddbaa7e85b6ff9175bb546bc1b"
   integrity sha512-Z+2VcYXJwOqQ79HreLU/1fyQ88eXSSFh6I3JdrEHQIfYSI0kCQpTGvOrbE6jFGGYXKsHuwY9tBa/w5Uo6KzrEg==
 
-"@types/react@*":
-  version "19.2.15"
-  resolved "https://npm.flatt.tech/@types/react/-/react-19.2.15.tgz#9e2c6a4251a290f5c525c3143caa872fa6e01e0d"
-  integrity sha512-eRwcGNHve+E8qtEQSSRl6urh+rFop4v8gm6O8rGv25CodbvFdLjA1vVQ1KkiFE0w0UPOnb8tDiFKL5lp0rtY5Q==
-  dependencies:
-    csstype "^3.2.2"
-
 "@types/react@17.0.2":
   version "17.0.2"
   resolved "https://npm.flatt.tech/@types/react/-/react-17.0.2.tgz#3de24c4efef902dd9795a49c75f760cbe4f7a5a8"
@@ -2485,13 +2488,12 @@
     "@types/scheduler" "^0.16"
     csstype "^3.2.2"
 
-"@types/recharts@1.8.26":
-  version "1.8.26"
-  resolved "https://npm.flatt.tech/@types/recharts/-/recharts-1.8.26.tgz#9ae5bb732b7bf5701da1a0522eebc9cbf6e5294d"
-  integrity sha512-aQj6sPwcklOtLl/tpbs1i33YaIQnmIZjxm5yzvV0BnzgDAp039AfuGDZOT5kochG6MyIdyIMzoSu49aBSJAqow==
+"@types/recharts@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/recharts/-/recharts-2.0.1.tgz#8ca180f515daa6150a95fef7635ab28190f597bc"
+  integrity sha512-/cFs7oiafzByUwBSWA1IzE6FW+ppPwQAWsDTadSgVOwzveY9MESpyLHyyHY0SfPPKLW4+4qVNYHPXd0rFiC8vg==
   dependencies:
-    "@types/d3-shape" "^1"
-    "@types/react" "*"
+    recharts "*"
 
 "@types/resolve@1.17.1":
   version "1.17.1"
@@ -2519,6 +2521,11 @@
   version "2.0.7"
   resolved "https://npm.flatt.tech/@types/trusted-types/-/trusted-types-2.0.7.tgz#baccb07a970b91707df3a3e8ba6896c57ead2d11"
   integrity sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==
+
+"@types/use-sync-external-store@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.6.tgz#60be8d21baab8c305132eb9cb912ed497852aadc"
+  integrity sha512-zFDAD+tlpf2r4asuHEj0XH6pY6i0g5NeAHPn+15wk3BV6JA69eERFXC1gyGThDkVa1zCyKr5jox1+2LbV/AMLg==
 
 "@types/yargs-parser@*":
   version "21.0.3"
@@ -3548,7 +3555,7 @@ clsx@1.2.1:
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
   integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
 
-clsx@^2.0.0:
+clsx@^2.0.0, clsx@^2.1.1:
   version "2.1.1"
   resolved "https://npm.flatt.tech/clsx/-/clsx-2.1.1.tgz#eed397c9fd8bd882bfb18deab7102049a2f32999"
   integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
@@ -3964,7 +3971,7 @@ decamelize@^1.2.0:
   resolved "https://npm.flatt.tech/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==
 
-decimal.js-light@^2.4.1:
+decimal.js-light@^2.4.1, decimal.js-light@^2.5.1:
   version "2.5.1"
   resolved "https://npm.flatt.tech/decimal.js-light/-/decimal.js-light-2.5.1.tgz#134fd32508f19e208f4fb2f8dac0d2626a867934"
   integrity sha512-qIMFpTMZmny+MMIitAB6D7iVPEorVw6YQRWkvarTkT4tBeSLLiHzcwj6q0MmYSFCiVpiqPJTJEYIrpcPzVEIvg==
@@ -4144,12 +4151,13 @@ dom-accessibility-api@^0.5.9:
   resolved "https://npm.flatt.tech/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz#5a7429e6066eb3664d911e33fb0e45de8eb08453"
   integrity sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==
 
-dom-helpers@^3.4.0:
-  version "3.4.0"
-  resolved "https://npm.flatt.tech/dom-helpers/-/dom-helpers-3.4.0.tgz#e9b369700f959f62ecde5a6babde4bccd9169af8"
-  integrity sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==
+dom-helpers@^5.0.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-5.2.1.tgz#d9400536b2bf8225ad98fe052e029451ac40e902"
+  integrity sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==
   dependencies:
-    "@babel/runtime" "^7.1.2"
+    "@babel/runtime" "^7.8.7"
+    csstype "^3.0.2"
 
 dom-storage@2.1.0:
   version "2.1.0"
@@ -4381,6 +4389,11 @@ es-to-primitive@^1.3.0:
     is-date-object "^1.0.5"
     is-symbol "^1.0.4"
 
+es-toolkit@^1.39.3:
+  version "1.46.1"
+  resolved "https://registry.yarnpkg.com/es-toolkit/-/es-toolkit-1.46.1.tgz#38ca27191a98a867fc544b81cf1477a68947fb06"
+  integrity sha512-5eNtXOs3tbfxXOj04tjjseeWkRWaoCjdEI+96DgwzZoe6c9juL49pXlzAFTI72aWC9Y8p7168g6XIKjh7k6pyQ==
+
 es6-object-assign@^1.1.0:
   version "1.1.0"
   resolved "https://npm.flatt.tech/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
@@ -4564,6 +4577,11 @@ eventemitter3@^4.0.1:
   resolved "https://npm.flatt.tech/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
 
+eventemitter3@^5.0.1:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-5.0.4.tgz#a86d66170433712dde814707ac52b5271ceb1feb"
+  integrity sha512-mlsTRyGaPBjPedk6Bvw+aqbsXDtoAyAzm5MO7JgU+yVRyMQ5O8bD4Kcci7BS85f93veegeCPkL8R4GLClnjLFw==
+
 events@^3.0.0:
   version "3.3.0"
   resolved "https://npm.flatt.tech/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
@@ -4700,9 +4718,9 @@ fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   resolved "https://npm.flatt.tech/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
 
-fast-equals@^5.0.0:
+fast-equals@^5.0.1:
   version "5.4.0"
-  resolved "https://npm.flatt.tech/fast-equals/-/fast-equals-5.4.0.tgz#b60073b8764f27029598447f05773c7534ba7f1e"
+  resolved "https://registry.yarnpkg.com/fast-equals/-/fast-equals-5.4.0.tgz#b60073b8764f27029598447f05773c7534ba7f1e"
   integrity sha512-jt2DW/aNFNwke7AUd+Z+e6pz39KO5rzdbbFCg2sGafS4mk13MI7Z8O5z9cADNn5lhGODIgLwug6TZO2ctf7kcw==
 
 fast-glob@^3.2.9, fast-glob@^3.3.0:
@@ -5375,6 +5393,16 @@ ignore@^5.2.0:
   version "5.3.2"
   resolved "https://npm.flatt.tech/ignore/-/ignore-5.3.2.tgz#3cd40e729f3643fd87cb04e50bf0eb722bc596f5"
   integrity sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==
+
+immer@^10.1.1:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-10.2.0.tgz#88a4ce06a1af64172d254b70f7cb04df51c871b1"
+  integrity sha512-d/+XTN3zfODyjr89gM3mPq1WNX2B8pYsu7eORitdwyA2sBubnTl3laYlBk4sXY5FUa5qTZGBDPJICVbvqzjlbw==
+
+immer@^11.0.0:
+  version "11.1.8"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-11.1.8.tgz#08a6426f7019dbce8d6dff8c4a43bb25c550a575"
+  integrity sha512-/tbkHMW7y10Lx6i1crLjD4/OhNkRG+Fo7byZHtah0547nIeXYcpIXaUh0IAQY6gO5459qpGGYapcEOHtFXkIuA==
 
 import-fresh@^3.2.1:
   version "3.3.1"
@@ -6668,7 +6696,7 @@ lodash.sortby@^4.7.0:
   resolved "https://npm.flatt.tech/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha512-HDWXG8isMntAyRF5vZ7xKuEvOhT4AhlRt/3czTSjvGUxjYCBVRQY48ViDHyfYz9VIoBkW4TMGQNapx+l3RUwdA==
 
-lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.7.0:
+lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.7.0:
   version "4.18.1"
   resolved "https://npm.flatt.tech/lodash/-/lodash-4.18.1.tgz#ff2b66c1f6326d59513de2407bf881439812771c"
   integrity sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==
@@ -7796,7 +7824,7 @@ react-dom@17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-is@16.13.1, react-is@^16.10.2, react-is@^16.13.1, react-is@^16.8.1:
+react-is@16.13.1, react-is@^16.13.1, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://npm.flatt.tech/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -7806,38 +7834,42 @@ react-is@^17.0.1:
   resolved "https://npm.flatt.tech/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-is@^18.0.0:
+react-is@^18.0.0, react-is@^18.3.1:
   version "18.3.1"
-  resolved "https://npm.flatt.tech/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
-react-lifecycles-compat@^3.0.4:
-  version "3.0.4"
-  resolved "https://npm.flatt.tech/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
-  integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+"react-redux@8.x.x || 9.x.x":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-9.3.0.tgz#a30113bb6d95c0a715d54dda4308d450fca6ce09"
+  integrity sha512-KQopgqFo/p/fgmAs5qz6p5RWaNAzq40WAu7fJIXnQpYxFPbJYtsJPWvGeF2rOBaY/kEuV77AVsX8TsQzKm+A/g==
+  dependencies:
+    "@types/use-sync-external-store" "^0.0.6"
+    use-sync-external-store "^1.4.0"
 
 react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://npm.flatt.tech/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-smooth@^2.0.5:
-  version "2.0.5"
-  resolved "https://npm.flatt.tech/react-smooth/-/react-smooth-2.0.5.tgz#d153b7dffc7143d0c99e82db1532f8cf93f20ecd"
-  integrity sha512-BMP2Ad42tD60h0JW6BFaib+RJuV5dsXJK9Baxiv/HlNFjvRLqA9xrNKxVWnUIZPQfzUwGXIlU/dSYLU+54YGQA==
+react-smooth@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/react-smooth/-/react-smooth-4.0.4.tgz#a5875f8bb61963ca61b819cedc569dc2453894b4"
+  integrity sha512-gnGKTpYwqL0Iii09gHobNolvX4Kiq4PKx6eWBCYYix+8cdw+cGo3do906l1NBPKkSWx1DghC1dlWG9L2uGd61Q==
   dependencies:
-    fast-equals "^5.0.0"
-    react-transition-group "2.9.0"
+    fast-equals "^5.0.1"
+    prop-types "^15.8.1"
+    react-transition-group "^4.4.5"
 
-react-transition-group@2.9.0:
-  version "2.9.0"
-  resolved "https://npm.flatt.tech/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
-  integrity sha512-+HzNTCHpeQyl4MJ/bdE0u6XRMe9+XG/+aL4mCxVN4DnPBQ0/5bfHWPDuOZUzYdMj94daZaZdCCc1Dzt9R/xSSg==
+react-transition-group@^4.4.5:
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"
+  integrity sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==
   dependencies:
-    dom-helpers "^3.4.0"
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
-    react-lifecycles-compat "^3.0.4"
 
 react@17.0.2:
   version "17.0.2"
@@ -7916,16 +7948,33 @@ recharts-scale@^0.4.4:
   dependencies:
     decimal.js-light "^2.4.1"
 
-recharts@2.11.0:
-  version "2.11.0"
-  resolved "https://npm.flatt.tech/recharts/-/recharts-2.11.0.tgz#af17248b6d2cb099cfd42ba93b307bf807adb456"
-  integrity sha512-5s+u1m5Hwxb2nh0LABkE3TS/lFqFHyWl7FnPbQhHobbQQia4ih1t3o3+ikPYr31Ns+kYe4FASIthKeKi/YYvMg==
+recharts@*:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/recharts/-/recharts-3.8.1.tgz#1784b14784dab9a27eb426c475e6a9187f14cf01"
+  integrity sha512-mwzmO1s9sFL0TduUpwndxCUNoXsBw3u3E/0+A+cLcrSfQitSG62L32N69GhqUrrT5qKcAE3pCGVINC6pqkBBQg==
+  dependencies:
+    "@reduxjs/toolkit" "^1.9.0 || 2.x.x"
+    clsx "^2.1.1"
+    decimal.js-light "^2.5.1"
+    es-toolkit "^1.39.3"
+    eventemitter3 "^5.0.1"
+    immer "^10.1.1"
+    react-redux "8.x.x || 9.x.x"
+    reselect "5.1.1"
+    tiny-invariant "^1.3.3"
+    use-sync-external-store "^1.2.2"
+    victory-vendor "^37.0.2"
+
+recharts@2.15.4:
+  version "2.15.4"
+  resolved "https://registry.yarnpkg.com/recharts/-/recharts-2.15.4.tgz#0ed3e66c0843bcf2d9f9a172caf97b1d05127a5f"
+  integrity sha512-UT/q6fwS3c1dHbXv2uFgYJ9BMFHu3fwnd7AYZaEQhXuYQ4hgsxLvsUXzGdKeZrW5xopzDCvuA2N41WJ88I7zIw==
   dependencies:
     clsx "^2.0.0"
     eventemitter3 "^4.0.1"
-    lodash "^4.17.19"
-    react-is "^16.10.2"
-    react-smooth "^2.0.5"
+    lodash "^4.17.21"
+    react-is "^18.3.1"
+    react-smooth "^4.0.4"
     recharts-scale "^0.4.4"
     tiny-invariant "^1.3.1"
     victory-vendor "^36.6.8"
@@ -7936,6 +7985,16 @@ recoil@0.7.7:
   integrity sha512-8Og5KPQW9LwC577Vc7Ug2P0vQshkv1y3zG3tSSkWMqkWSwHmE+by06L8JtnGocjW6gcCvfwB3YtrJG6/tWivNQ==
   dependencies:
     hamt_plus "1.0.2"
+
+redux-thunk@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-3.1.0.tgz#94aa6e04977c30e14e892eae84978c1af6058ff3"
+  integrity sha512-NW2r5T6ksUKXCabzhL9z+h206HQw/NJkcLm1GPImRQ8IzfXwRGqjVhKJGauHirT0DAuyy6hjdnMZaRoAcy0Klw==
+
+redux@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-5.0.1.tgz#97fa26881ce5746500125585d5642c77b6e9447b"
+  integrity sha512-M9/ELqF6fy8FwmkpnF0S3YKOqMyoWJ4+CS5Efg2ct3oY9daQvd/Pc71FpGZsVsbl3Cpb+IIcjBDUnnyBdQbq4w==
 
 reflect.getprototypeof@^1.0.6, reflect.getprototypeof@^1.0.9:
   version "1.0.10"
@@ -8046,6 +8105,16 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://npm.flatt.tech/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==
+
+reselect@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-5.1.1.tgz#c766b1eb5d558291e5e550298adb0becc24bb72e"
+  integrity sha512-K/BG6eIky/SBpzfHZv/dd+9JBFiS4SWV7FIujVyJRux6e45+73RaUHXLmIR1f7WOMaQ0U1km6qwklRQxpJJY0w==
+
+reselect@^5.1.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-5.2.0.tgz#f380ef7664332d26ea06c1cba04bdbbdcaa955f1"
+  integrity sha512-AgZ3UOZm3YndfrJ4OYjgrT7bmCm/1iqkjvEfH/oYjzh6PD2qw4QuT3jjnXIrpdt4MTpMXclMT3lXbmRY+XRakw==
 
 resolve-cwd@^3.0.0:
   version "3.0.0"
@@ -9052,7 +9121,7 @@ timers-browserify@2.0.12, timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
-tiny-invariant@^1.3.1:
+tiny-invariant@^1.3.1, tiny-invariant@^1.3.3:
   version "1.3.3"
   resolved "https://npm.flatt.tech/tiny-invariant/-/tiny-invariant-1.3.3.tgz#46680b7a873a0d5d10005995eb90a70d74d60127"
   integrity sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==
@@ -9440,6 +9509,11 @@ use-subscription@1.5.1:
   dependencies:
     object-assign "^4.1.1"
 
+use-sync-external-store@^1.2.2, use-sync-external-store@^1.4.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.6.0.tgz#b174bfa65cb2b526732d9f2ac0a408027876f32d"
+  integrity sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://npm.flatt.tech/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
@@ -9513,6 +9587,26 @@ victory-vendor@^36.6.8:
   version "36.9.2"
   resolved "https://npm.flatt.tech/victory-vendor/-/victory-vendor-36.9.2.tgz#668b02a448fa4ea0f788dbf4228b7e64669ff801"
   integrity sha512-PnpQQMuxlwYdocC8fIJqVXvkeViHYzotI+NJrCuav0ZYFoq912ZHBk3mCeuj+5/VpodOjPe1z0Fk2ihgzlXqjQ==
+  dependencies:
+    "@types/d3-array" "^3.0.3"
+    "@types/d3-ease" "^3.0.0"
+    "@types/d3-interpolate" "^3.0.1"
+    "@types/d3-scale" "^4.0.2"
+    "@types/d3-shape" "^3.1.0"
+    "@types/d3-time" "^3.0.0"
+    "@types/d3-timer" "^3.0.0"
+    d3-array "^3.1.6"
+    d3-ease "^3.0.1"
+    d3-interpolate "^3.0.1"
+    d3-scale "^4.0.2"
+    d3-shape "^3.1.0"
+    d3-time "^3.0.0"
+    d3-timer "^3.0.1"
+
+victory-vendor@^37.0.2:
+  version "37.3.6"
+  resolved "https://registry.yarnpkg.com/victory-vendor/-/victory-vendor-37.3.6.tgz#401ac4b029a0b3d33e0cba8e8a1d765c487254da"
+  integrity sha512-SbPDPdDBYp+5MJHhBCAyI7wKM3d5ivekigc2Dk2s7pgbZ9wIgIBYGVw4zGHBml/qTFbexrofXW6Gu4noGxrOwQ==
   dependencies:
     "@types/d3-array" "^3.0.3"
     "@types/d3-ease" "^3.0.0"
