@@ -168,7 +168,7 @@ export const HomePage: React.FC<Props> = ({
         <div className="text-center mt-4">
           <button
             onClick={handleAddRound}
-            className="btn bg-gradient-to-r from-teal-400 to-blue-500 text-white"
+            className="btn bg-blue-500 hover:bg-blue-600 text-white"
           >
             add Round
           </button>
