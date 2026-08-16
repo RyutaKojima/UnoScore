@@ -31,7 +31,7 @@ describe('ResultTableFooter', () => {
       {}
     )
 
-    expect(getByText('合計')).toBeInTheDocument()
+    expect(getByText('合計')).toBeDefined()
     expect(getAllByText('50').length).toBeGreaterThanOrEqual(2)
     expect(getAllByText('-50').length).toBeGreaterThanOrEqual(2)
   })
@@ -44,7 +44,7 @@ describe('ResultTableFooter', () => {
       {}
     )
 
-    expect(getByText('合計(x2)')).toBeInTheDocument()
+    expect(getByText('合計(x2)')).toBeDefined()
     // 50 * 2 = 100, -50 * 2 = -100
     expect(getAllByText('100').length).toBe(2)
     expect(getAllByText('-100').length).toBe(2)
@@ -69,6 +69,6 @@ describe('ResultTableFooter', () => {
       {}
     )
 
-    expect(getByText('合計')).toBeInTheDocument()
+    expect(getByText('合計')).toBeDefined()
   })
 })

@@ -137,10 +137,10 @@ describe('Result logic and component', () => {
         {}
       )
 
-      expect(getByText('Player 1')).toBeInTheDocument()
-      expect(getByText('Player 2')).toBeInTheDocument()
-      expect(getByText('1位')).toBeInTheDocument()
-      expect(getByText('2位')).toBeInTheDocument()
+      expect(getByText('Player 1')).toBeDefined()
+      expect(getByText('Player 2')).toBeDefined()
+      expect(getByText('1位')).toBeDefined()
+      expect(getByText('2位')).toBeDefined()
     })
   })
 })

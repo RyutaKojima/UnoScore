@@ -18,10 +18,10 @@ describe('ScoreTable', () => {
       {}
     )
 
-    expect(getByText('Alice')).toBeInTheDocument()
-    expect(getByText('Bob')).toBeInTheDocument()
-    expect(getByDisplayValue('10')).toBeInTheDocument()
-    expect(getByDisplayValue('20')).toBeInTheDocument()
+    expect(getByText('Alice')).toBeDefined()
+    expect(getByText('Bob')).toBeDefined()
+    expect(getByDisplayValue('10')).toBeDefined()
+    expect(getByDisplayValue('20')).toBeDefined()
   })
 
   it('calls onChange with non-negative score on input change', () => {
