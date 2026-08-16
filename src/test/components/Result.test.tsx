@@ -10,6 +10,16 @@ describe('Result logic and component', () => {
     magnification: 1,
   }
 
+  beforeAll(() => {
+    window.ResizeObserver =
+      window.ResizeObserver ||
+      jest.fn().mockImplementation(() => ({
+        disconnect: jest.fn(),
+        observe: jest.fn(),
+        unobserve: jest.fn(),
+      }))
+  })
+
   describe('calculateResults logic', () => {
     it('returns empty array when rounds are empty', () => {
       const results = calculateResults([], defaultOptions)
