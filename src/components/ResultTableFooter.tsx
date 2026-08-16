@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { TableCell } from './TableCell'
-import { sumArray } from '../utils/utils'
 import { IResult } from '../interfaces/result'
 import clsx from 'clsx'
 import { IMagnification } from '../interfaces/magnification'
@@ -14,14 +13,20 @@ export const ResultTableFooter: React.FC<Props> = ({
   results,
   magnification,
 }) => {
-  const totalScores: number[] = results.reduce<number[]>((prev, result) => {
-    const scores = result.map((r) => r.score)
-    if (prev.length === 0) {
-      return scores
+  // Optimization: Single-pass accumulation directly accesses score properties,
+  // avoiding intermediate .map() array allocations and sumArray function calls per round.
+  const totalScores: number[] = useMemo(() => {
+    if (results.length === 0) return []
+    const numPlayers = results[0].length
+    const totals = new Array(numPlayers).fill(0)
+    for (let r = 0; r < results.length; r++) {
+      const round = results[r]
+      for (let p = 0; p < numPlayers; p++) {
+        totals[p] += round[p].score
+      }
     }
-
-    return sumArray(prev, scores)
-  }, [])
+    return totals
+  }, [results])
 
   const finalScores: number[] | null =
     typeof magnification === 'number'
