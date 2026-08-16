@@ -25,39 +25,47 @@ const getFinalScore = (
   return rawScore
 }
 
-export const Result = (props: Props): JSX.Element => {
-  const results = useMemo(() => {
-    let prevRound: IResult[] = []
-    return props.rounds.map((round) => {
-      const ranking: ResultRow = round.map((v) => ({
-        rank: round.filter((target) => v > target).length + 1,
-        score: v,
-        total: 0,
-      }))
+export const calculateResults = (
+  rounds: number[][],
+  options: IOption
+): ResultRow[] => {
+  let prevRound: IResult[] = []
+  return rounds.map((round) => {
+    const ranking: ResultRow = round.map((v) => ({
+      rank: round.filter((target) => v > target).length + 1,
+      score: v,
+      total: 0,
+    }))
 
-      const rescued: ResultRow = ranking.map((v) => ({
+    const rescued: ResultRow = ranking.map((v) => ({
+      ...v,
+      score: getFinalScore(v.rank, v.score, options),
+    }))
+
+    const roundScoreTotal: number = rescued.reduce(
+      (prev, current) => prev + current.score,
+      0
+    )
+
+    const fixCurrentRound: ResultRow = rescued.map((v, index) => {
+      const score = v.rank === 1 ? roundScoreTotal : v.score * -1
+      return {
         ...v,
-        score: getFinalScore(v.rank, v.score, props.options),
-      }))
-
-      const roundScoreTotal: number = rescued.reduce(
-        (prev, current) => prev + current.score,
-        0
-      )
-
-      const fixCurrentRound: ResultRow = rescued.map((v, index) => {
-        const score = v.rank === 1 ? roundScoreTotal : v.score * -1
-        return {
-          ...v,
-          score,
-          total: score + (prevRound[index]?.total ?? 0),
-        }
-      })
-
-      prevRound = fixCurrentRound
-      return fixCurrentRound
+        score,
+        total: score + (prevRound[index]?.total ?? 0),
+      }
     })
-  }, [props.rounds, props.options])
+
+    prevRound = fixCurrentRound
+    return fixCurrentRound
+  })
+}
+
+export const Result = (props: Props): JSX.Element => {
+  const results = useMemo(
+    () => calculateResults(props.rounds, props.options),
+    [props.rounds, props.options]
+  )
 
   return (
     <div>
